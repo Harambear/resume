@@ -1,0 +1,109 @@
+  .start-bar {
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+
+    background: #C0C0C0;
+
+    height: 3rem;
+    width: 100%;
+
+    padding: 0 0.5rem;
+
+    box-shadow: 0 -2px #fffdfc, 0 -4px #cce9eb;
+
+    &__start-button {
+      background-image: url("/assets/start-button.png");
+      background-repeat: no-repeat;
+      background-position: 0.25rem;
+      background-size: auto 80%;
+      background-color: transparent;
+
+      border: none;
+
+      cursor: pointer;
+      height: 2.25rem;
+      min-width: 105px;
+      width: 6.5rem;
+    }
+
+    &__start-menu {
+      display: flex;
+      position: absolute;
+      bottom: 3.25rem;
+      left: 0.5rem;
+
+      width: 25rem;
+      background: #C0C0C0;
+
+      &__title {
+        display: flex;
+
+        font-family: Arial Black, sans-serif;
+        background: #011590;
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 900;
+        padding: 0.5rem;
+        writing-mode: vertical-lr;
+        transform: scale(-1, -1);
+
+        span {
+          font-family: Arial, sans-serif;
+          font-weight: 300;
+        }
+      }
+
+      &__program {
+        &--line-below {
+          box-shadow: 0 2px #808280,
+            0 4px white;
+        }
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        height: 4rem;
+
+        padding: 1rem;
+
+        &:hover {
+          background: #0c1b98;
+          color: #ffffff;
+        }
+
+        &__container {
+          width: 100%;
+        }
+
+        &__icon {
+          width: 1.5rem;
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    &__windows-container {
+      display: flex;
+      flex-grow: 1;
+    }
+
+    &__time-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 2.25rem;
+      width: 6rem;
+
+      box-shadow: 0 2px white,
+        0 -2px #7d7d7d,
+        -2px -2px #7d7d7d,
+        2px 2px white,
+        -2px 2px #7d7d7d,
+        2px -2px white;
+    }
+  }
