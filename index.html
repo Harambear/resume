@@ -6,14 +6,70 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ki Jung Kim</title>
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" type="image/x-icon" href="assets/windows.png">
+  <link rel="stylesheet" href="styles/css/site.css">
 </head>
 
 <body>
-  <h1 id="test">Resume</h1>
+  <div class="background">
+    <div class="desktop">
+      <!-- structure of desktop icon -->
+      <!-- <div class="desktop__icon">
+        <img class="desktop__icon__image" src="assets/computer.png" alt="">
+        <div class="desktop__icon__title">
+          My Computer
+        </div>
+      </div> -->
+
+      <!-- <div class="desktop__window box-shadow">
+        <div class="desktop__window__header">
+          <div class="desktop__window__header__title">
+            Test some header
+          </div>
+          <div class="desktop__window__header__control-container">
+            <div class="desktop__window__header__control desktop__window__header__control--minimize box-shadow"></div>
+            <div class="desktop__window__header__control desktop__window__header__control--maximize box-shadow"></div>
+            <div class="desktop__window__header__control desktop__window__header__control--close box-shadow"></div>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
+
+
+    <div class="start-bar">
+      <button class="start-bar__start-button box-shadow"></button>
+
+      <div class="start-bar__start-menu box-shadow hidden">
+        <div class="start-bar__start-menu__title">
+          Windows<span>98</span>
+        </div>
+        <div class="start-bar__start-menu__program__container">
+          <!-- structure of start menu item -->
+          <!-- <div class="start-bar__start-menu__program">
+            <img class="start-bar__start-menu__program__icon" src="assets/computer.png" alt="" />
+            <div class="start-bar__start-menu__program__title">
+              My Computer
+            </div>
+          </div> -->
+
+        </div>
+      </div>
+      <div class="start-bar__windows-container"></div>
+      <div class="start-bar__time-box">
+        <div class="start-bar__time-box__time">
+          @kijungkim
+        </div>
+        <!-- <div class="start-menu__time-box__time">
+          2024
+        </div> -->
+      </div>
+    </div>
+  </div>
 
   <!-- ensure HTML is loaded -->
-  <script src="/javascript/index.js"></script>
+  <script type="module" src="/javascript/index.js"></script>
 </body>
 
 </html>
