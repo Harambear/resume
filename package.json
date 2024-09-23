@@ -4,6 +4,8 @@
   "description": "Static resume webpage featuring vanilla HTML, CSS, and JavaScript.",
   "main": "index.js",
   "scripts": {
+    "sass:dev": "sass --watch --embed-source-map styles/scss:styles/css",
+    "sass:prod": "sass --no-source-map --style compressed styles/scss:styles/css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ki Jung Kim",
