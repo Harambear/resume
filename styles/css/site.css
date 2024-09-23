@@ -62,14 +62,12 @@ dd {
 }
 .desktop__window {
   position: absolute;
-  top: 5rem;
-  left: 15rem;
   color: white;
   background: #b9b9b9;
-  width: 60rem;
+  width: 50rem;
   min-width: 10rem;
   max-width: 100%;
-  height: 40rem;
+  height: 30rem;
   min-height: 10rem;
   max-height: 100%;
   resize: both;
@@ -113,9 +111,33 @@ dd {
   content: "";
   width: 0.8rem;
   border: 2px solid black;
-  border-top: 3px solid black;
+  border-top: 4px solid black;
   height: 0.8rem;
   margin-bottom: 1px;
+}
+.desktop__window__header__control--reset {
+  justify-content: flex-start;
+  position: relative;
+}
+.desktop__window__header__control--reset::before {
+  content: "";
+  position: absolute;
+  background: #c0c0c0;
+  width: 12px;
+  height: 12px;
+  border: 2px solid black;
+  border-top: 3px solid black;
+  left: 3px;
+  bottom: 6px;
+}
+.desktop__window__header__control--reset::after {
+  content: "";
+  position: absolute;
+  background: #c0c0c0;
+  width: 12px;
+  height: 12px;
+  border: 2px solid black;
+  border-top: 3px solid black;
 }
 .desktop__window__header__control--close::before {
   content: "✖";
@@ -133,6 +155,7 @@ dd {
 .start-bar {
   position: absolute;
   bottom: 0;
+  z-index: 9001;
   display: flex;
   align-items: center;
   background: #C0C0C0;
@@ -197,9 +220,35 @@ dd {
   width: 1.5rem;
   margin-right: 1rem;
 }
-.start-bar__windows-container {
+.start-bar__program {
   display: flex;
+  align-items: center;
+  font-weight: 600;
+  height: 70%;
+  min-width: 8rem;
+  width: 12rem;
+  margin-left: 1rem;
+}
+.start-bar__program__icon {
+  width: 1.5rem;
+  margin: 0 0.5rem;
+}
+.start-bar__program__title {
+  text-overflow: ellipsis;
+}
+.start-bar__program-container {
+  display: flex;
+  align-items: center;
   flex-grow: 1;
+  margin: 0 1rem;
+  height: 100%;
+}
+.start-bar__program-container::before {
+  content: "";
+  height: 2.5rem;
+  width: 2px;
+  background: #f2f2f2;
+  box-shadow: 1px 1px 0 #818181;
 }
 .start-bar__time-box {
   display: flex;
@@ -221,4 +270,4 @@ dd {
   display: none;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/_base.scss%22,%22../scss/_desktop.scss%22,%22../scss/_shadows.scss%22,%22../scss/_start-bar.scss%22,%22../scss/site.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;AAAA;EAGE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;EAME;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASE;EACA;EACA;EACA;;;ACnCF;EACE;EACA;;AAEA;EACE;EACA;EACA;EAEA;EAEA;EAEA;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAKF;EACE;EACA;;AAKN;EACE;EACA;EACA;EAEA;EAEA;EAEA;EACA;EACA;EAEA;EACA;EACA;EAEA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;;;AC7GZ;EACE;;AAmBA;EACE;;;ACrBF;EACE;EACA;EAEA;EACA;EAEA;EAEA;EACA;EAEA;EAEA;;AAEA;EACE;EACA;EACA;EACA;EACA;EAEA;EAEA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EAEA;EACA;;AAEA;EACE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAIJ;EAME;EACA;EACA;EAEA;EAEA;;AAXA;EACE;;AAYF;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;;AAKN;EACE;EACA;;AAGF;EACE;EACA;EACA;EAEA;EACA;EAEA;;;AChGN;EACE;EACA;EACA;EACA;;;AAGF;EACE%22,%22file%22:%22site.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/_base.scss%22,%22../scss/_desktop.scss%22,%22../scss/_shadows.scss%22,%22../scss/_start-bar.scss%22,%22../scss/site.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;AAAA;EAGE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;EAME;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASE;EACA;EACA;EACA;;;ACnCF;EACE;EACA;;AAEA;EACE;EACA;EACA;EAEA;EAEA;EAEA;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAKF;EACE;EACA;;AAKN;EACE;EAEA;EAEA;EAEA;EACA;EACA;EAEA;EACA;EACA;EAEA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;;AAEA;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;;;ACxIZ;EACE;;AAmBA;EACE;;;ACrBF;EACE;EACA;EACA;EAEA;EACA;EAEA;EAEA;EACA;EAEA;EAEA;;AAEA;EACE;EACA;EACA;EACA;EACA;EAEA;EAEA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EAEA;EACA;;AAEA;EACE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAIJ;EAME;EACA;EACA;EAEA;EAEA;;AAXA;EACE;;AAYF;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;;AAKN;EACE;EACA;EAEA;EAEA;EACA;EACA;EAEA;;AAEA;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAKN;EACE;EACA;EACA;EAEA;EACA;EAEA;;;AClIN;EACE;EACA;EACA;EACA;;;AAGF;EACE%22,%22file%22:%22site.css%22%7D */
