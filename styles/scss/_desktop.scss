@@ -1,8 +1,10 @@
 @use 'viewports';
 
 .desktop {
-  width: 100lvw;
-  height: calc(100lvh - 3rem);
+  width: 100vw;
+  width: 100svw;
+  height: calc(100vh - 3rem);
+  height: calc(100svh - 3rem);
 
   display: flex;
   flex-direction: column;
