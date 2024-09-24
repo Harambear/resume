@@ -33,7 +33,6 @@ export function helpers() {
 
       if (title.innerHTML === program.name) {
         //activate program
-
         programContainer.classList.remove(classNames.boxShadow);
         programContainer.classList.add(classNames.boxShadow + classNames.active);
       } else {

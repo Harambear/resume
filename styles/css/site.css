@@ -39,6 +39,10 @@ dd {
 .desktop {
   width: 100vw;
   height: calc(100vh - 3rem);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 .desktop__icon {
   cursor: pointer;
@@ -65,7 +69,7 @@ dd {
   position: absolute;
   color: white;
   background: #b9b9b9;
-  width: 50rem;
+  width: 30rem;
   min-width: 10rem;
   max-width: 100%;
   height: 30rem;
@@ -108,6 +112,11 @@ dd {
   top: 3px;
   height: 3px;
 }
+@media (max-width: 649px) {
+  .desktop__window__header__control--maximize {
+    display: none;
+  }
+}
 .desktop__window__header__control--maximize::before {
   content: "";
   width: 0.8rem;
@@ -119,6 +128,11 @@ dd {
 .desktop__window__header__control--reset {
   justify-content: flex-start;
   position: relative;
+}
+@media (max-width: 649px) {
+  .desktop__window__header__control--reset {
+    display: none;
+  }
 }
 .desktop__window__header__control--reset::before {
   content: "";
@@ -176,6 +190,27 @@ dd {
   height: 2.25rem;
   min-width: 105px;
   width: 6.5rem;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .start-bar__start-button {
+    background-image: url("/assets//windows.png");
+    background-position: center center;
+    min-width: 3rem;
+    width: 3rem;
+  }
+}
+.start-bar__start-button::after {
+  content: "";
+  position: absolute;
+  right: -1rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 2.5rem;
+  width: 2px;
+  background: #f2f2f2;
+  box-shadow: 1px 1px 0 #818181;
 }
 .start-bar__start-menu {
   display: flex;
@@ -184,6 +219,15 @@ dd {
   left: 0.5rem;
   width: 25rem;
   background: #C0C0C0;
+}
+@media (max-width: 768px) {
+  .start-bar__start-menu {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 98%;
+  }
 }
 .start-bar__start-menu__title {
   display: flex;
@@ -199,6 +243,12 @@ dd {
 .start-bar__start-menu__title span {
   font-family: Arial, sans-serif;
   font-weight: 300;
+}
+.start-bar__start-menu__title__copyright {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: auto;
 }
 .start-bar__start-menu__program {
   cursor: pointer;
@@ -226,43 +276,116 @@ dd {
   cursor: pointer;
   display: flex;
   align-items: center;
+  text-wrap: nowrap;
   font-weight: 600;
   height: 70%;
   min-width: 8rem;
   width: 12rem;
   margin-left: 1rem;
+  padding-right: 0.5rem;
+}
+@media (max-width: 768px) {
+  .start-bar__program {
+    width: auto;
+  }
+}
+@media (max-width: 649px) {
+  .start-bar__program {
+    min-width: auto;
+    padding-right: 0;
+  }
+}
+.start-bar__program:first-child {
+  margin-left: 0;
 }
 .start-bar__program__icon {
   width: 1.5rem;
   margin: 0 0.5rem;
 }
 .start-bar__program__title {
+  overflow: hidden;
   text-overflow: ellipsis;
+}
+@media (max-width: 649px) {
+  .start-bar__program__title {
+    display: none;
+  }
+}
+.start-bar__program-container--wrapper {
+  flex-grow: 1;
+  margin: 0 1rem;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.start-bar__program-container--wrapper::before {
+  content: "";
+  z-index: 1;
+  pointer-events: none;
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0), #c0c0c0 90%);
+  width: 1rem;
+  height: 3rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.start-bar__program-container--wrapper::after {
+  content: "";
+  z-index: 1;
+  pointer-events: none;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #c0c0c0 90%);
+  width: 1rem;
+  height: 3rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 .start-bar__program-container {
   display: flex;
   align-items: center;
-  flex-grow: 1;
-  margin: 0 1rem;
+  overflow-x: scroll;
   height: 100%;
+  padding: 0 1rem;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
-.start-bar__program-container::before {
-  content: "";
-  height: 2.5rem;
-  width: 2px;
-  background: #f2f2f2;
-  box-shadow: 1px 1px 0 #818181;
+.start-bar__program-container::-webkit-scrollbar {
+  display: none;
 }
 .start-bar__time-box {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 2.25rem;
+  min-width: 3rem;
   width: 6rem;
   box-shadow: 0 2px white, 0 -2px #7d7d7d, -2px -2px #7d7d7d, 2px 2px white, -2px 2px #7d7d7d, 2px -2px white;
+  position: relative;
 }
 .start-bar__time-box a {
+  display: flex;
   text-decoration: none;
+}
+.start-bar__time-box a img {
+  width: 1.5rem;
+}
+.start-bar__time-box::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 2.5rem;
+  width: 2px;
+  background: #f2f2f2;
+  box-shadow: 1px 1px 0 #818181;
 }
 
 .background {
@@ -276,4 +399,4 @@ dd {
   display: none;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/_base.scss%22,%22../scss/_desktop.scss%22,%22../scss/_shadows.scss%22,%22../scss/_start-bar.scss%22,%22../scss/site.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;AAAA;EAGE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;EAME;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASE;EACA;EACA;EACA;;;ACnCF;EACE;EACA;;AAEA;EACE;EACA;EACA;EACA;EAEA;EAEA;EAEA;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAKF;EACE;EACA;;AAKN;EACE;EAEA;EAEA;EAEA;EACA;EACA;EAEA;EACA;EACA;EAEA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;;AAEA;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;;;ACzIZ;EACE;;AAmBA;EACE;;;ACrBF;EACE;EACA;EACA;EAEA;EACA;EAEA;EAEA;EACA;EAEA;EAEA;;AAEA;EACE;EACA;EACA;EACA;EACA;EAEA;EAEA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EAEA;EACA;;AAEA;EACE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAIJ;EACE;EAOA;EACA;EACA;EAEA;EAEA;;AAXA;EACE;;AAYF;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;;AAKN;EACE;EAEA;EACA;EAEA;EAEA;EACA;EACA;EAEA;;AAEA;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAKN;EACE;EACA;EACA;EAEA;EACA;EAEA;;AAOA;EACE;;;AC9IR;EACE;EACA;EACA;EACA;;;AAGF;EACE%22,%22file%22:%22site.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/_base.scss%22,%22../scss/_desktop.scss%22,%22../scss/_shadows.scss%22,%22../scss/_start-bar.scss%22,%22../scss/site.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;AAAA;EAGE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;EAME;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASE;EACA;EACA;EACA;;;ACjCF;EACE;EACA;EAEA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EAEA;EAEA;EAEA;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAKF;EACE;EACA;;AAKN;EACE;EAEA;EAEA;EAEA;EACA;EACA;EAEA;EACA;EACA;EAEA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EACA;EACA;;AAKF;EADF;IAEI;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAIJ;EAKE;EACA;;AALA;EADF;IAEI;;;AAMF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;;;ACxJZ;EACE;;AAmBA;EACE;;;ACnBF;EACE;EACA;EACA;EAEA;EACA;EAEA;EAEA;EACA;EAEA;EAEA;;AAEA;EAQE;EACA;EACA;EACA;EACA;EAEA;EAEA;EACA;EACA;EACA;EAEA;;AApBA;EADF;IAEI;IACA;IACA;IACA;;;AAkBF;EACE;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;AAIJ;EASE;EACA;EACA;EACA;EAEA;EACA;;AAdA;EADF;IAEI;IACA;IACA;IACA;IACA;;;AAWF;EACE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;EACA;EACA;;AAIJ;EACE;EAOA;EACA;EACA;EAEA;EAEA;;AAXA;EACE;;AAYF;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;;AAKN;EAcE;EAEA;EACA;EACA;EAEA;EAEA;EACA;EACA;EAEA;EAEA;;AA3BA;EADF;IAEI;;;AAGF;EALF;IAMI;IACA;;;AAGF;EACE;;AAmBF;EACE;EACA;;AAGF;EAKE;EACA;;AALA;EADF;IAEI;;;AAOJ;EACE;EACA;EACA;EAEA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;EACA;EACA;EACA;EAMA;AACA;EACA;AACA;;AAPA;EACE;;AAUN;EACE;EACA;EACA;EAEA;EAEA;EACA;EAEA;EAgBA;;AATA;EACE;EACA;;AAEA;EACE;;AAMJ;EACE;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;;ACxQR;EACE;EACA;EACA;EACA;;;AAGF;EACE%22,%22file%22:%22site.css%22%7D */

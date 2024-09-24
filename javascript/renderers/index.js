@@ -2,9 +2,6 @@
 import { constants } from "../constants/index.js";
 const { classNames } = constants();
 
-const baseWindowTopOffset = 5;
-const baseWindowLeftOffset = 15;
-
 export function renderers() {
   function renderDesktopIcons(programs, clickHandler) {
     const desktop = document.querySelector('.desktop');
@@ -38,8 +35,22 @@ export function renderers() {
 
     const windowCount = document.querySelectorAll('.desktop__window').length;
 
-    window.style.top = (baseWindowTopOffset + windowCount) + 'rem';
-    window.style.left = (baseWindowLeftOffset + windowCount) + 'rem';
+    if (innerWidth >= 650 && innerWidth < 768) {
+      window.style.top = (3 + windowCount) + 'rem';
+      window.style.left = (5 + windowCount) + 'rem';
+    } else if (innerWidth >= 768 && innerWidth < 1024) {
+      window.style.top = (5 + windowCount) + 'rem';
+      window.style.left = (7 + windowCount) + 'rem';
+    } else if (innerWidth >= 1024) {
+      window.style.top = (5 + windowCount) + 'rem';
+      window.style.left = (10 + windowCount) + 'rem';
+    } else {
+      window.style.top = 0;
+      window.style.left = 0;
+      window.style.height = '100%';
+      window.style.width = '100%';
+    }
+
     window.style.zIndex = ++startZIndex;
 
     document.querySelector('.desktop').appendChild(window);
@@ -73,10 +84,15 @@ export function renderers() {
     item.appendChild(title);
 
     startBarProgramContainer.appendChild(item);
+    item.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
   }
 
   function renderStartMenuPrograms(programs, clickHandler) {
-    const startMenu = document.querySelector('.start-bar__start-menu__program__container');
+    const
+      startMenu = document.querySelector('.start-bar__start-menu__program__container'),
+      startMenuCopyright = document.querySelector('.start-bar__start-menu__title__copyright');
+
+    startMenuCopyright.innerHTML = new Date().getFullYear();
 
     return programs.forEach((program) => {
       const item = document.createElement('div');

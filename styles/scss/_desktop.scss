@@ -1,6 +1,13 @@
+@use 'viewports';
+
 .desktop {
   width: 100vw;
   height: calc(100vh - 3rem);
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
 
   &__icon {
     cursor: pointer;
@@ -39,7 +46,7 @@
 
     background: #b9b9b9;
 
-    width: 50rem;
+    width: 30rem;
     min-width: 10rem;
     max-width: 100%;
 
@@ -92,6 +99,10 @@
         }
 
         &--maximize {
+          @media (max-width: viewports.$large-mobile) {
+            display: none;
+          }
+
           &::before {
             content: '';
             width: 0.8rem;
@@ -103,6 +114,10 @@
         }
 
         &--reset {
+          @media (max-width: viewports.$large-mobile) {
+            display: none;
+          }
+
           justify-content: flex-start;
           position: relative;
 
