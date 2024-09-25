@@ -228,7 +228,7 @@ dd {
 .start-bar__start-button::after {
   content: "";
   position: absolute;
-  right: -1rem;
+  right: calc(-1rem + 1px);
   top: 0;
   bottom: 0;
   margin: auto;
@@ -354,7 +354,7 @@ dd {
   width: 1rem;
   height: 3rem;
   position: absolute;
-  left: 1px;
+  left: 0;
   top: 0;
   bottom: 0;
   margin: auto;
