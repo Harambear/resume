@@ -126,6 +126,12 @@
           width: 1.5rem;
           margin-right: 1rem;
         }
+
+        &__title {
+          &::first-letter {
+            text-decoration: underline;
+          }
+        }
       }
     }
 
@@ -189,7 +195,7 @@
           width: 1rem;
           height: 3rem;
           position: absolute;
-          left: 0;
+          left: 1px;
           top: 0;
           bottom: 0;
           margin: auto;

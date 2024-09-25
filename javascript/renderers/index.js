@@ -31,7 +31,9 @@ export function renderers() {
     const window = document.createElement('div');
 
     window.className = 'desktop__window ' + classNames.boxShadow;
+
     window.appendChild(_generateWindowHeader(program.name, handlers.controls));
+    window.appendChild(_generateWindowOptions(program));
 
     const windowCount = document.querySelectorAll('.desktop__window').length;
 
@@ -160,6 +162,23 @@ export function renderers() {
     header.appendChild(controlContainer);
 
     return header;
+  }
+
+  function _generateWindowOptions(program) {
+    const container = document.createElement('div');
+
+    container.className = 'desktop__window__option-container';
+
+    program.options.forEach((option) => {
+      const item = document.createElement('div');
+
+      item.className = 'desktop__window__option';
+      item.innerHTML = option;
+
+      container.appendChild(item);
+    });
+
+    return container;
   }
 
   return {
