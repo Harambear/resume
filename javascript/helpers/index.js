@@ -60,6 +60,16 @@ export function helpers() {
     });
   }
 
+  function deactivateStartBarPrograms() {
+    const
+      activeProgram = document.querySelector('.start-bar__program.box-shadow--active');
+
+    if (activeProgram) {
+      activeProgram.classList.remove('box-shadow--active');
+      activeProgram.classList.add('box-shadow');
+    }
+  }
+
   function deactivateStartButton() {
     const
       button = document.querySelector('.start-bar__start-button'),
@@ -105,6 +115,7 @@ export function helpers() {
   return {
     activateProgram,
     deactivateOtherDesktopIcons,
+    deactivateStartBarPrograms,
     deactivateStartButton,
     desktopIconIsActive,
     getProgramByProgramName,

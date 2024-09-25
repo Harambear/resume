@@ -5,6 +5,7 @@ import { helpers } from '../helpers/index.js';
 const {
   activateProgram,
   deactivateOtherDesktopIcons,
+  deactivateStartBarPrograms,
   deactivateStartButton,
   desktopIconIsActive,
   getProgramByProgramName,
@@ -58,6 +59,7 @@ export function handlers() {
       programName = this.querySelector('.desktop__window__header__title').innerHTML,
       program = getProgramByProgramName(programName);
 
+    deactivateStartButton();
     activateProgram(program);
   }
 
@@ -99,15 +101,9 @@ export function handlers() {
   function minimizeClickHandler(event) {
     event.stopPropagation();
 
-    const
-      window = this.parentNode.parentNode.parentNode,
-      activeProgram = document.querySelector('.start-bar__program.box-shadow--active');
+    const window = this.parentNode.parentNode.parentNode;
 
-    //deactivate active programs
-    if (activeProgram) {
-      activeProgram.classList.remove('box-shadow--active');
-      activeProgram.classList.add('box-shadow');
-    }
+    deactivateStartBarPrograms();
 
     window.classList.toggle('hidden');
   }
