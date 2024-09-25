@@ -47,10 +47,10 @@ export function renderers() {
       window.style.top = (5 + windowCount) + 'rem';
       window.style.left = (10 + windowCount) + 'rem';
     } else {
-      window.style.top = 0;
-      window.style.left = 0;
-      window.style.height = '100%';
-      window.style.width = '100%';
+      window.style.top = '0.25rem';
+      window.style.left = '0.25rem';
+      window.style.height = 'calc(100svh - 3.5rem)';
+      window.style.width = '98%';
     }
 
     window.style.zIndex = ++startZIndex;
