@@ -21,3 +21,7 @@ renderDesktopIcons(programs, desktopIconClickHandler);
 renderStartMenuPrograms(programs, startMenuItemClickHandler);
 document.querySelector('.start-bar__start-button').addEventListener('click', startButtonHandler);
 document.querySelector('.background').addEventListener('click', deactivateAll);
+
+window.addEventListener('load', () => {
+  document.querySelector('.desktop').style.display = 'flex';
+});

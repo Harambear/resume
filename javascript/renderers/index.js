@@ -35,6 +35,10 @@ export function renderers() {
     window.appendChild(_generateWindowHeader(program.name, handlers.controls));
     window.appendChild(_generateWindowOptions(program));
 
+    if (program.hasAddressBar) {
+      window.appendChild(_generateWindowAddressBar(program));
+    }
+
     const windowCount = document.querySelectorAll('.desktop__window').length;
 
     if (innerWidth >= 650 && innerWidth < 768) {
@@ -119,6 +123,42 @@ export function renderers() {
 
       startMenu.appendChild(item);
     });
+  }
+
+  function _generateWindowAddressBar(program) {
+    const
+      addressBar = document.createElement('div'),
+      container = document.createElement('div'),
+      content = document.createElement('div'),
+      control = document.createElement('div'),
+      image = document.createElement('img'),
+      title = document.createElement('div');
+
+
+    container.className = 'desktop__window__address-container';
+    container.innerHTML = 'Address';
+
+    addressBar.className = 'desktop__window__address-bar box-shadow--active--light';
+
+    content.className = 'desktop__window__address-bar__content';
+
+    image.className = 'desktop__window__address-bar__image';
+    image.src = program.icon;
+    image.alt = program.name;
+    content.appendChild(image);
+
+    title.className = 'desktop__window__address-bar__title';
+    title.innerHTML = program.name;
+    content.appendChild(title);
+
+    control.className = 'desktop__window__address-bar__control box-shadow--light';
+
+    addressBar.appendChild(content);
+    addressBar.appendChild(control);
+
+    container.appendChild(addressBar);
+
+    return container;
   }
 
   function _generateWindowHeader(programName, handlers) {
