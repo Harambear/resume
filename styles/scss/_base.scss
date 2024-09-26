@@ -17,7 +17,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   margin: 0;
 }
 
@@ -34,4 +35,9 @@ dd {
   padding: 0;
   font-family: Arial, sans-serif;
   font-weight: 300;
+}
+
+@font-face {
+  font-family: "Classic Console";
+  src: url("/assets/fonts/classic-console.woff2") format('woff');
 }

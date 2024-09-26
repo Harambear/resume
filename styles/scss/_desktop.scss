@@ -265,10 +265,42 @@
       flex-grow: 1;
       margin: 0.25rem;
       margin-top: 0.5rem;
-
+      padding: 1rem;
 
       &--black {
+        display: flex;
+        flex-direction: column;
         background: #000000;
+        font-family: Classic Console;
+        color: white;
+        line-height: 1.2rem;
+        overflow-y: scroll;
+
+        .terminal__job {
+          margin-top: 1rem;
+
+          ul {
+            list-style-type: none;
+
+            li {
+              padding-left: 1rem;
+              font-family: Classic Console;
+              margin: 0.5rem;
+            }
+          }
+
+          .terminal--pink {
+            color: #FF55FF;
+          }
+
+          .terminal--cyan {
+            color: #55FFFF;
+          }
+
+          .terminal--green {
+            color: #55FF55;
+          }
+        }
       }
 
       &--gray {}
