@@ -72,7 +72,11 @@ export function data() {
             'Removed vendor dependency by cultivating in-house capabilities',
             'Orchestrated a platform upgrade from ASP.NET to ASP.NET Core on an enterprise-scale application',
             'Coordinated over a dozen platform-integrations including Adobe Analytics, cookie compliance, and Marketo',
-            'Developed end-to-end solutions and APIs to support business directives'
+            'Developed end-to-end solutions and APIs to support business directives',
+            'Identified and deployed WAF rules to mitigate DDoS attacks',
+            'Directed a switch to CI/CD pipelines for development team',
+            'Automated business procedures to alleviate process bottlenecks',
+            'Facilitated initiatives from other teams by serving as an application security consultant'
           ]
         },
         {
@@ -92,7 +96,7 @@ export function data() {
           start: 'August 2018',
           end: 'December 2022',
           duties: [
-            'Performed as a sole contractor alongside AMC Asia! to implement Messenger bots for Meta\'s Event Operations team',
+            'Performed as sole contractor to implement Messenger bots for Meta\'s Event Operations team',
             'Delivered scalable applications that handled webhook connections of over 2,000 concurrent users',
             'Featured in several Meta events across asia, such as:',
             'One APAC Global Marketing Summit (2018, 2019, 2020)',
@@ -106,8 +110,8 @@ export function data() {
           start: 'August 2018',
           end: 'February 2020',
           duties: [
-            'Modernized COBOL payroll system to .NET Core for Hawai\'i State Department of Education',
-            'Implemented modern Single Page Applications using VueJS',
+            'Modernized COBOL payroll systems to .NET Core for over 40,000 employees of Hawai\'i State Department of Education',
+            'Implemented Single Page Applications using VueJS',
             'Optimized SQL queries often exceeding millions of effective-dated records',
             'Identified and resolved data-input errors by querying and comparing multiple datasets via Python script',
             'Mentored client developer team for ensured success post-delivery'
