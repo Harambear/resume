@@ -6,7 +6,7 @@
   height: calc(100vh - 3rem);
   height: calc(100svh - 3rem);
 
-  display: flex;
+  display: none;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -171,13 +171,94 @@
         width: 100%;
         padding: 0.5rem 1rem;
         position: relative;
-        box-shadow: 0 2px #808280, 0 4px white;
+        box-shadow: 0 2px #808280, 0 3px white;
 
         &::before {
           content: '';
           position: absolute;
           left: 0.25rem;
-          height: 1rem;
+          top: 0.4rem;
+          height: 1.5rem;
+          width: 2px;
+          background: #f2f2f2;
+          box-shadow: 1px 1px 0 #818181;
+        }
+      }
+    }
+
+    &__address {
+      &-bar {
+        display: flex;
+        align-items: center;
+        height: 1.5rem;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.1);
+
+        margin-left: 1rem;
+
+        &__content {
+          height: 100%;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          overflow: hidden;
+          flex-grow: 1;
+        }
+
+        &__image {
+          width: 1rem;
+          margin-left: 0.5rem;
+        }
+
+        &__title {
+          overflow: hidden;
+          text-wrap: nowrap;
+          margin-left: 0.5rem;
+        }
+
+        &__control {
+          background: #c0c0c0;
+
+          height: 85%;
+          width: 1.2rem;
+
+          font-family: Arial Black, sans-serif;
+          box-sizing: border-box;
+
+          font-size: 0.75rem;
+          position: relative;
+          color: #000000;
+          line-height: 1rem;
+          margin-left: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 1px;
+
+          &::before {
+            content: '\25BC';
+          }
+        }
+      }
+
+      &-container {
+        color: black;
+        font-size: 14px;
+
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        padding: 6px 1rem 4px 1rem;
+        position: relative;
+        box-shadow: 0 2px #808280, 0 3px white;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0.25rem;
+          top: 0.4rem;
+          height: 1.5rem;
           width: 2px;
           background: #f2f2f2;
           box-shadow: 1px 1px 0 #818181;
