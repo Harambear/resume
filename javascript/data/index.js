@@ -1,3 +1,6 @@
+import { constants } from "../constants/index.js";
+const { windowTypes } = constants();
+
 export function data() {
   const windowOptions = {
     edit: 'Edit',
@@ -8,12 +11,6 @@ export function data() {
     search: 'Search',
     tools: 'Tools',
     view: 'View'
-  }
-
-  const windowType = {
-    notepad: 'notepad',
-    terminal: 'terminal',
-    folder: 'folder'
   }
 
   const programs = [
@@ -27,6 +24,7 @@ export function data() {
         windowOptions.tools,
         windowOptions.help
       ],
+      type: windowTypes.folder,
       hasAddressBar: true,
     },
     {
@@ -37,7 +35,8 @@ export function data() {
         windowOptions.file,
         windowOptions.view,
         windowOptions.help
-      ]
+      ],
+      type: windowTypes.help,
     },
     {
       name: 'Stack',
@@ -48,6 +47,7 @@ export function data() {
         windowOptions.view,
         windowOptions.help
       ],
+      type: windowTypes.folder,
       hasAddressBar: true,
     },
     {
@@ -59,7 +59,8 @@ export function data() {
         windowOptions.view,
         windowOptions.tools,
         windowOptions.help
-      ]
+      ],
+      type: windowTypes.terminal,
     },
     {
       name: 'Education',
@@ -70,7 +71,8 @@ export function data() {
         windowOptions.edit,
         windowOptions.search,
         windowOptions.help
-      ]
+      ],
+      type: windowTypes.notepad,
     },
     {
       name: 'Contact Info',
@@ -80,11 +82,12 @@ export function data() {
         windowOptions.edit,
         windowOptions.view,
         windowOptions.help
-      ]
+      ],
+      type: windowTypes.help,
     },
   ];
 
   return {
-    programs
+    programs,
   }
 }
