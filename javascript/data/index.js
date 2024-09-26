@@ -26,7 +26,8 @@ export function data() {
         windowOptions.view,
         windowOptions.tools,
         windowOptions.help
-      ]
+      ],
+      hasAddressBar: true,
     },
     {
       name: 'About Me',
@@ -40,17 +41,18 @@ export function data() {
     },
     {
       name: 'Stack',
-      icon: 'assets/console-prompt.png',
+      icon: 'assets/hard-disk.png',
       options: [
         windowOptions.file,
         windowOptions.edit,
         windowOptions.view,
         windowOptions.help
-      ]
+      ],
+      hasAddressBar: true,
     },
     {
       name: 'Experience',
-      icon: 'assets/hard-disk.png',
+      icon: 'assets/console-prompt.png',
       options: [
         windowOptions.file,
         windowOptions.edit,
@@ -81,6 +83,7 @@ export function data() {
       ]
     },
   ];
+
   return {
     programs
   }
