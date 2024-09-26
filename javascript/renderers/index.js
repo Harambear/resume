@@ -1,6 +1,6 @@
 
 import { constants } from "../constants/index.js";
-const { classNames } = constants();
+const { classNames, windowTypes } = constants();
 
 export function renderers() {
   function renderDesktopIcons(programs, clickHandler) {
@@ -38,6 +38,8 @@ export function renderers() {
     if (program.hasAddressBar) {
       window.appendChild(_generateWindowAddressBar(program));
     }
+
+    window.appendChild(_generateWindowContent(program));
 
     const windowCount = document.querySelectorAll('.desktop__window').length;
 
@@ -134,7 +136,6 @@ export function renderers() {
       image = document.createElement('img'),
       title = document.createElement('div');
 
-
     container.className = 'desktop__window__address-container';
     container.innerHTML = 'Address';
 
@@ -157,6 +158,30 @@ export function renderers() {
     addressBar.appendChild(control);
 
     container.appendChild(addressBar);
+
+    return container;
+  }
+
+  function _generateWindowContent(program) {
+    const
+      container = document.createElement('div');
+
+    container.className = 'desktop__window__content box-shadow--active--light';
+
+    switch (program.type) {
+      case windowTypes.terminal:
+        container.classList.add('desktop__window__content--black');
+        break;
+
+      case windowTypes.help:
+        container.classList.add('desktop__window__content--gray');
+        break;
+
+      case windowTypes.notepad:
+      case windowTypes.folder:
+        container.classList.add('desktop__window__content--white');
+        break;
+    }
 
     return container;
   }

@@ -5,7 +5,15 @@ export function constants() {
     hidden: 'hidden'
   }
 
+  const windowTypes = {
+    notepad: 'notepad',
+    terminal: 'terminal',
+    folder: 'folder',
+    help: 'help'
+  }
+
   return {
-    classNames
+    classNames,
+    windowTypes
   };
 }
