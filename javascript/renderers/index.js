@@ -60,10 +60,11 @@ export function renderers() {
     }
 
     window.style.zIndex = ++startZIndex;
+    window.addEventListener('click', handlers.windowClickHandler);
 
     document.querySelector('.desktop').appendChild(window);
 
-    window.addEventListener('click', handlers.windowClickHandler);
+    _generateExperienceContent(program);
   }
 
   function renderStartBarProgram(program, clickHandler) {
@@ -125,6 +126,62 @@ export function renderers() {
 
       startMenu.appendChild(item);
     });
+  }
+
+  async function _generateExperienceContent(program) {
+    const target = document.querySelector('.desktop__window__content--black');
+
+    for (let i = 0; i < program.content.length; i++) {
+      if (i === 0) {
+        const
+          command = document.createElement('p'),
+          text = 'fetch work_history...';
+
+        command.innerHTML = 'C:\\KIMDOWS> ';
+        target.appendChild(command);
+
+        await _print(text, command, 25);
+      }
+
+      const
+        job = program.content[i],
+        container = document.createElement('div');
+
+      container.className = 'terminal__job';
+      target.append(container);
+
+      const
+        name = document.createElement('p'),
+        position = document.createElement('p'),
+        dates = document.createElement('p'),
+        duties = document.createElement('ul');
+
+      name.className = 'terminal--cyan';
+      position.className = 'terminal--green';
+      dates.className = 'terminal--green';
+
+      container.appendChild(name);
+      container.appendChild(position);
+      container.appendChild(dates);
+      container.appendChild(duties);
+
+      await _print(job.name, name, 10);
+      await _print(job.position, position, 10);
+
+      const duration = job.start + ' - ' + job.end;
+
+      await _print(duration, dates);
+
+      for (let j = 0; j < job.duties.length; j++) {
+        const
+          list = document.createElement('li'),
+          duty = job.duties[j];
+
+        duties.appendChild(list);
+
+        await _print(duty, list, 1);
+      }
+    }
   }
 
   function _generateWindowAddressBar(program) {
@@ -244,6 +301,19 @@ export function renderers() {
     });
 
     return container;
+  }
+
+  async function _print(text, target, speed) {
+    for (let i = 0; i < text.length; i++) {
+      const character = text[i];
+
+      target.innerHTML += character;
+      await _sleep(speed);
+    }
+  }
+
+  function _sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   return {
