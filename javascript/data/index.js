@@ -16,7 +16,7 @@ export function data() {
   const programs = [
     {
       name: 'My Computer',
-      icon: 'assets/computer.png',
+      icon: 'assets/images/computer.png',
       options: [
         windowOptions.file,
         windowOptions.edit,
@@ -29,7 +29,7 @@ export function data() {
     },
     {
       name: 'About Me',
-      icon: 'assets/help-book.png',
+      icon: 'assets/images/help-book.png',
       class: '--line-below',
       options: [
         windowOptions.file,
@@ -40,7 +40,7 @@ export function data() {
     },
     {
       name: 'Stack',
-      icon: 'assets/hard-disk.png',
+      icon: 'assets/images/hard-disk.png',
       options: [
         windowOptions.file,
         windowOptions.edit,
@@ -52,7 +52,7 @@ export function data() {
     },
     {
       name: 'Experience',
-      icon: 'assets/console-prompt.png',
+      icon: 'assets/images/console-prompt.png',
       options: [
         windowOptions.file,
         windowOptions.edit,
@@ -61,10 +61,63 @@ export function data() {
         windowOptions.help
       ],
       type: windowTypes.terminal,
+      content: [
+        {
+          name: 'Bank of Hawai\'i',
+          position: 'Software Engineer',
+          start: 'June 2020',
+          end: 'Present',
+          duties: [
+            '\'Striving for Excellence\' awardee within 6 months of employment',
+            'Removed vendor dependency by cultivating in-house capabilities',
+            'Orchestrated a platform upgrade from ASP.NET to ASP.NET Core on an enterprise-scale application',
+            'Coordinated over a dozen platform-integrations including Adobe Analytics, cookie compliance, and Marketo',
+            'Developed end-to-end solutions and APIs to support business directives'
+          ]
+        },
+        {
+          name: 'CGI',
+          position: 'Consultant',
+          start: 'February 2020',
+          end: 'June 2020',
+          duties: [
+            'Evaluated application throughput and resource bottlenecks',
+            'Designed and executed benchmark test scripts that mimic thousands of real-time users',
+            'Facilitated in resolution of system weakpoints'
+          ]
+        },
+        {
+          name: 'AMC Asia! + Meta',
+          position: 'Messenger Application Contractor',
+          start: 'August 2018',
+          end: 'December 2022',
+          duties: [
+            'Performed as a sole contractor alongside AMC Asia! to implement Messenger bots for Meta\'s Event Operations team',
+            'Delivered scalable applications that handled webhook connections of over 2,000 concurrent users',
+            'Featured in several Meta events across asia, such as:',
+            'One APAC Global Marketing Summit (2018, 2019, 2020)',
+            'Women\'s Leadership Day Conference (2019)',
+            'Facebook Marketing Summit (2018, 2019)',
+          ]
+        },
+        {
+          name: 'eWorld Enterprise Solutions',
+          position: 'Systems Analyst - Fullstack Developer',
+          start: 'August 2018',
+          end: 'February 2020',
+          duties: [
+            'Modernized COBOL payroll system to .NET Core for Hawai\'i State Department of Education',
+            'Implemented modern Single Page Applications using VueJS',
+            'Optimized SQL queries often exceeding millions of effective-dated records',
+            'Identified and resolved data-input errors by querying and comparing multiple datasets via Python script',
+            'Mentored client developer team for ensured success post-delivery'
+          ]
+        }
+      ]
     },
     {
       name: 'Education',
-      icon: 'assets/notepad.png',
+      icon: 'assets/images/notepad.png',
       class: '--line-below',
       options: [
         windowOptions.file,
@@ -76,7 +129,7 @@ export function data() {
     },
     {
       name: 'Contact Info',
-      icon: 'assets/outlook.png',
+      icon: 'assets/images/outlook.png',
       options: [
         windowOptions.file,
         windowOptions.edit,
