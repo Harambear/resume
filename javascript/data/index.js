@@ -98,10 +98,12 @@ export function data() {
           duties: [
             'Performed as sole contractor to implement Messenger bots for Meta\'s Event Operations team',
             'Delivered scalable applications that handled webhook connections of over 2,000 concurrent users',
-            'Featured in several Meta events across asia, such as:',
+            'Featured in several Meta conventions across asia, such as:',
+            'Facebook Marketing Partners for Messaging (2022)',
             'One APAC Global Marketing Summit (2018, 2019, 2020)',
             'Women\'s Leadership Day Conference (2019)',
             'Facebook Marketing Summit (2018, 2019)',
+            'Level Up Seoul (2018)',
           ]
         },
         {
@@ -130,6 +132,18 @@ export function data() {
         windowOptions.help
       ],
       type: windowTypes.notepad,
+      content: [
+        {
+          name: 'DevLeague',
+          description: 'JavaScript Software Engineering',
+          completionYear: 2018
+        },
+        {
+          name: 'University of Hawai\'i',
+          description: 'Bachelors in College of Arts and Sciences',
+          completionYear: 2016
+        }
+      ]
     },
     {
       name: 'Contact Info',
