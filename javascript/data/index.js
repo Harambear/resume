@@ -135,13 +135,13 @@ export function data() {
       content: [
         {
           name: 'DevLeague',
-          description: 'JavaScript Software Engineering',
-          completionYear: 2018
+          description: 'JavaScript Software Engineer',
+          completionYear: 'Completed Fall 2018'
         },
         {
           name: 'University of Hawai\'i',
           description: 'Bachelors in College of Arts and Sciences',
-          completionYear: 2016
+          completionYear: '2016 Graduate'
         }
       ]
     },

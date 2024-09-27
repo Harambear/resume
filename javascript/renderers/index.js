@@ -64,7 +64,21 @@ export function renderers() {
 
     document.querySelector('.desktop').appendChild(window);
 
-    _generateExperienceContent(program);
+    switch (program.type) {
+      case windowTypes.terminal:
+        _generateExperienceContent(program);
+        break;
+
+      case windowTypes.help:
+        break;
+
+      case windowTypes.notepad:
+        _generateNotepadContent(program);
+        break;
+
+      case windowTypes.folder:
+        break;
+    }
   }
 
   function renderStartBarProgram(program, clickHandler) {
@@ -181,6 +195,40 @@ export function renderers() {
 
         await _print(duty, list, 1);
       }
+    }
+  }
+
+  async function _generateNotepadContent(program) {
+    const
+      target = document.querySelector('.desktop__window__content--white'),
+      line = document.createElement('p'),
+      text = document.createElement('div');
+
+    line.className = 'notepad__line';
+    text.appendChild(line);
+
+    text.className = 'notepad';
+    target.appendChild(text);
+
+    for (let i = 0; i < program.content.length; i++) {
+      const
+        date = document.createElement('p'),
+        description = document.createElement('p'),
+        name = document.createElement('p'),
+        school = program.content[i];
+
+      name.className = 'notepad__line notepad__line--name';
+      date.className = 'notepad__line';
+      description.className = 'notepad__line notepad__line--spacer';
+
+      text.appendChild(name);
+      await _print(school.name, name, 50);
+
+      text.appendChild(date);
+      await _print(school.completionYear, date, 50);
+
+      text.appendChild(description);
+      await _print(school.description, description, 50);
     }
   }
 
