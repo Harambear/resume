@@ -307,6 +307,54 @@
 
       &--white {
         background: #ffffff;
+
+        .notepad {
+          color: black;
+
+          &__line {
+            width: fit-content;
+            line-height: 1.5rem;
+
+            &--name {
+              font-weight: bold;
+              text-decoration: underline;
+            }
+
+            &--spacer {
+              margin-bottom: 1rem;
+            }
+
+            &:last-child {
+              border-right: 1px solid black;
+              -webkit-animation: cursorBlink 1s step-end infinite;
+              animation: cursorBlink 1s step-end infinite;
+
+              @-webkit-keyframes cursorBlink {
+
+                from,
+                to {
+                  border-color: transparent
+                }
+
+                50% {
+                  border-color: black
+                }
+              }
+
+              @keyframes cursorBlink {
+
+                from,
+                to {
+                  border-color: transparent
+                }
+
+                50% {
+                  border-color: black
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
