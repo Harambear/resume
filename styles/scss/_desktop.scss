@@ -50,7 +50,6 @@
     resize: both;
     overflow: hidden;
     height: 30rem;
-    width: 30rem;
 
     &__header {
       display: flex;
@@ -267,6 +266,58 @@
       margin-top: 0.5rem;
       padding: 1rem;
 
+      &--system {
+        margin: 0.5rem;
+        margin-top: 2.5rem;
+
+        position: relative;
+        background: #b9b9b9;
+
+        .system {
+          &__tab {
+            &__button {
+              cursor: pointer;
+              font-size: 14px;
+              z-index: -1;
+              color: black;
+              display: flex;
+              align-items: center;
+              background: #b9b9b9;
+              padding: 0 1rem;
+              position: relative;
+              border-radius: 3px 3px 0 0;
+              pointer-events: auto;
+              box-shadow: inset -1px 0 #0a0a0a,
+                inset 2px 1px #dfdfdf,
+                inset -2px 0px grey,
+                inset 1px 2px #fff;
+
+              &--active {
+                z-index: 0;
+              }
+            }
+
+            &-container {
+              display: flex;
+              position: relative;
+              top: -3rem;
+              left: -18px;
+              height: 2rem;
+              pointer-events: none;
+            }
+
+            &__content {
+              position: absolute;
+              width: 80%;
+              height: 90%;
+              left: 50%;
+              top: 5%;
+              transform: translate(-50%, 0);
+            }
+          }
+        }
+      }
+
       &--black {
         display: flex;
         flex-direction: column;
@@ -303,9 +354,30 @@
         }
       }
 
-      &--gray {}
+      &--contact {
+        color: #000000;
 
-      &--white {
+        .contact-info {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1.5rem;
+
+          &__image {
+            width: 2rem;
+          }
+
+          &__text {
+            margin-left: 1rem;
+          }
+
+          &__container {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+      }
+
+      &--notepad {
         background: #ffffff;
 
         .notepad {

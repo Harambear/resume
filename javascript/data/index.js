@@ -17,15 +17,69 @@ export function data() {
     {
       name: 'My Computer',
       icon: 'assets/images/computer.png',
-      options: [
-        windowOptions.file,
-        windowOptions.edit,
-        windowOptions.view,
-        windowOptions.tools,
-        windowOptions.help
+      options: [],
+      type: windowTypes.system,
+      content: [
+        {
+          title: 'General',
+          tag: 'general',
+          data: [
+            {
+              title: 'System',
+              text: [
+                'Microsoft Kimdows 98',
+                'Web Edition',
+                'Version 1.0.0'
+              ]
+            },
+            {
+              title: 'General',
+              text: [
+                'Fullstack developer with over 7 years of professional experience in enterprise-scale application development',
+                'Application security enthusiast and OWASP fanatic',
+                'Diverse range of stack and experience'
+              ]
+            }
+          ]
+        },
+        {
+          title: 'Fun Facts',
+          tag: 'facts',
+          data: [
+            'has 2 fur baby cats and one of them is a cancer survivor!',
+            'likes to build and make things',
+            'is fluent in Korean'
+          ]
+        },
+        {
+          title: 'Contact Info',
+          tag: 'contact',
+          data: [
+            {
+              icon: 'assets/images/home.png',
+              alt: 'home',
+              text: 'Located in Honolulu, HI',
+            },
+            {
+              icon: 'assets/images/email.png',
+              alt: 'email',
+              text: 'kimkijung@icloud.com',
+            },
+            {
+              icon: 'assets/images/linkedin.png',
+              alt: 'linkedin',
+              text: 'linkedin.com/in/kimkijung'
+            },
+            {
+              icon: 'assets/images/github.png',
+              alt: 'github',
+              text: 'github.com/harambear',
+            }
+          ]
+        }
       ],
-      type: windowTypes.folder,
-      hasAddressBar: true,
+      height: '40rem',
+      width: '30rem'
     },
     {
       name: 'About Me',
@@ -37,6 +91,7 @@ export function data() {
         windowOptions.help
       ],
       type: windowTypes.help,
+      width: '30rem'
     },
     {
       name: 'Stack',
@@ -49,6 +104,7 @@ export function data() {
       ],
       type: windowTypes.folder,
       hasAddressBar: true,
+      width: '30rem'
     },
     {
       name: 'Experience',
@@ -119,7 +175,8 @@ export function data() {
             'Mentored client developer team for ensured success post-delivery'
           ]
         }
-      ]
+      ],
+      width: '50rem'
     },
     {
       name: 'Education',
@@ -143,7 +200,9 @@ export function data() {
           description: 'Bachelors in College of Arts and Sciences',
           completionYear: '2016 Graduate'
         }
-      ]
+      ],
+      width: '30rem',
+      height: '20rem'
     },
     {
       name: 'Contact Info',
@@ -154,7 +213,31 @@ export function data() {
         windowOptions.view,
         windowOptions.help
       ],
-      type: windowTypes.help,
+      type: windowTypes.contact,
+      content: [
+        {
+          icon: 'assets/images/home.png',
+          alt: 'home',
+          text: 'Located in Honolulu, HI',
+        },
+        {
+          icon: 'assets/images/email.png',
+          alt: 'email',
+          text: 'kimkijung@icloud.com',
+        },
+        {
+          icon: 'assets/images/linkedin.png',
+          alt: 'linkedin',
+          text: 'linkedin.com/in/kimkijung'
+        },
+        {
+          icon: 'assets/images/github.png',
+          alt: 'github',
+          text: 'github.com/harambear',
+        }
+      ],
+      width: '18rem',
+      height: '20rem'
     },
   ];
 
