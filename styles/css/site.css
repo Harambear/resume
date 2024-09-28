@@ -327,7 +327,7 @@ dd {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75%;
+  height: 13rem;
   width: 100%;
 }
 .desktop__window__content--system .system__tab__content--general .computer__button {
@@ -335,7 +335,7 @@ dd {
   position: absolute;
   background: linear-gradient(to bottom, darkgreen, lightgreen 50%);
   width: 1rem;
-  height: 0.5rem;
+  height: 0.3rem;
   right: 1.5rem;
   bottom: 0.3rem;
   animation: pulse-animation 2s infinite;
@@ -349,17 +349,32 @@ dd {
   }
 }
 .desktop__window__content--system .system__tab__content--general .computer__screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 85%;
-  height: 80%;
+  height: 11rem;
   background: #008282;
-  background-image: url("../../assets/images/windows_wallpaper.png");
+}
+.desktop__window__content--system .system__tab__content--general .computer__screen__image {
+  height: 95%;
+  width: 50%;
+  position: relative;
+  background: url("../../assets/images/profile_picture.png");
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+.desktop__window__content--system .system__tab__content--general .computer__screen__image::before {
+  content: "";
+  position: absolute;
+  height: 0.5rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #000b7c, #377cc6);
 }
 .desktop__window__content--system .system__tab__content--general .computer__stand {
   width: 50%;
-  height: 8%;
+  height: 1.5rem;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #b9b9b9);
   box-shadow: -2px 0px #e0dede, -2px 0 #e0dede, -4px 0px white, -4px 0 white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181, 2px 0px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black, 4px 4px black, 4px 0 black, 0 4px black, 2px 0px white, 4px 0px black;
 }
@@ -375,6 +390,37 @@ dd {
   align-items: center;
   width: 18rem;
   height: 18rem;
+}
+.desktop__window__content--system .system__tab__content--facts .facts-container {
+  font-family: Classic Console, sans-serif;
+  color: black;
+  padding: 1rem;
+}
+.desktop__window__content--system .system__tab__content--facts .facts__title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.desktop__window__content--system .system__tab__content--facts .facts__text {
+  margin-bottom: 1rem;
+}
+.desktop__window__content--system .system__tab__content--contact .contact {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.desktop__window__content--system .system__tab__content--contact .contact__image {
+  width: 2rem;
+}
+.desktop__window__content--system .system__tab__content--contact .contact__text {
+  margin-left: 1rem;
+  font-family: Classic Console, sans-serif;
+  color: black;
+}
+.desktop__window__content--system .system__tab__content--contact .contact__text a {
+  color: black;
+}
+.desktop__window__content--system .system__tab__content--contact .contact-container {
+  padding: 1rem;
 }
 .desktop__window__content--black {
   display: flex;
@@ -404,24 +450,6 @@ dd {
 }
 .desktop__window__content--black .terminal__job .terminal--green {
   color: #55FF55;
-}
-.desktop__window__content--contact {
-  color: #000000;
-}
-.desktop__window__content--contact .contact-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-.desktop__window__content--contact .contact-info__image {
-  width: 2rem;
-}
-.desktop__window__content--contact .contact-info__text {
-  margin-left: 1rem;
-}
-.desktop__window__content--contact .contact-info__container {
-  display: flex;
-  flex-direction: column;
 }
 .desktop__window__content--notepad {
   background: #ffffff;
@@ -712,4 +740,4 @@ dd {
   display: none !important;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/_base.scss%22,%22../scss/_desktop.scss%22,%22../scss/_shadows.scss%22,%22../scss/_start-bar.scss%22,%22../scss/site.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;AAAA;EAGE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EAOE;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASE;EACA;EACA;EACA;;;AAGF;EACE;EACA;;ACvCF;EACE;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EAEA;EAEA;EAEA;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAKF;EACE;EACA;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EACA;EACA;;AAKF;EADF;IAEI;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAIJ;EAKE;EACA;;AALA;EADF;IAEI;;;AAMF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;;AAMR;EACE;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAMJ;EACE;EACA;EACA;EACA;EACA;EAEA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;;AAGF;EACE;EACA;EACA;;AAGF;EACE;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAKN;EACE;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAKN;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EAEA;EACA;;AAII;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAKA;EACE;;AAIJ;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EAEA;;AAGF;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;IACE;;EAGF;IACE;;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EAEA;EACA;;AAkBF;EACE;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EAEA;EACA;;AASd;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAEA;EACE;;AAEA;EACE;EACA;EACA;;AAIJ;EACE;;AAGF;EACE;;AAGF;EACE;;AAKN;EACE;;AAEA;EACE;EACA;EACA;;AAEA;EACE;;AAGF;EACE;;AAGF;EACE;EACA;;AAKN;EACE;;AAEA;EACE;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;EACA;;AAEA;EAEE;IAEE;;EAGF;IACE;;;AAIJ;EAEE;IAEE;;EAGF;IACE;;;;ACrhBlB;EACE;;AAmBA;EACE,YACE;;AAoBJ;EACE;;AAmBA;EACE;;;AC7DJ;EACE;EACA;EACA;EAEA;EACA;EAEA;EAEA;EACA;EAEA;EAEA;;AAEA;EAQE;EACA;EACA;EACA;EACA;EAEA;EAEA;EACA;EACA;EACA;EAEA;;AApBA;EADF;IAEI;IACA;IACA;IACA;;;AAkBF;EACE;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;AAIJ;EASE;EACA;EACA;EACA;EAEA;EACA;;AAdA;EADF;IAEI;IACA;IACA;IACA;IACA;;;AAWF;EACE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;EACA;EACA;;AAIJ;EACE;EAOA;EACA;EACA;EAEA;EAEA;;AAXA;EACE;;AAYF;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;;AAIA;EACE;;AAMR;EAcE;EAEA;EACA;EACA;EAEA;EAEA;EACA;EACA;EAEA;EAEA;;AA3BA;EADF;IAEI;;;AAGF;EALF;IAMI;IACA;;;AAGF;EACE;;AAmBF;EACE;EACA;;AAGF;EAKE;EACA;;AALA;EADF;IAEI;;;AAOJ;EACE;EACA;EACA;EAEA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;EACA;EACA;EACA;EAMA;AACA;EACA;AACA;;AAPA;EACE;;AAUN;EACE;EACA;EACA;EAEA;EAEA;EACA;EAEA;EAgBA;;AATA;EACE;EACA;;AAEA;EACE;;AAMJ;EACE;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;;AC9QR;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE%22,%22file%22:%22site.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../scss/_base.scss%22,%22../scss/_desktop.scss%22,%22../scss/_shadows.scss%22,%22../scss/_start-bar.scss%22,%22../scss/site.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;AAAA;EAGE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EAOE;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EASE;EACA;EACA;EACA;;;AAGF;EACE;EACA;;ACvCF;EACE;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EAEA;EAEA;EAEA;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAKF;EACE;EACA;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EACA;EACA;;AAKF;EADF;IAEI;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAIJ;EAKE;EACA;;AALA;EADF;IAEI;;;AAMF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAKF;EACE;EACA;EACA;;AAMR;EACE;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAMJ;EACE;EACA;EACA;EACA;EACA;EAEA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;;AAGF;EACE;EACA;EACA;;AAGF;EACE;EAEA;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAKN;EACE;EACA;EAEA;EACA;EAEA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAKN;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EAEA;EACA;;AAII;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAKA;EACE;;AAIJ;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAGE;EACE;EACA;EACA;EACA;EAEA;;AAGF;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;IACE;;EAGF;IACE;;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAKN;EACE;EACA;EAEA;EACA;;AAkBF;EACE;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EAEA;EACA;;AAOF;EACE;EACA;EACA;;AAGF;EACE;EAEA;;AAGF;EACE;;AAOJ;EACE;EACA;EACA;;AAEA;EACE;;AAGF;EACE;EACA;EACA;;AAEA;EACE;;AAIJ;EACE;;AASd;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAEA;EACE;;AAEA;EACE;EACA;EACA;;AAIJ;EACE;;AAGF;EACE;;AAGF;EACE;;AAKN;EACE;;AAEA;EACE;;AAEA;EACE;EACA;;AAEA;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;EACA;;AAEA;EAEE;IAEE;;EAGF;IACE;;;AAIJ;EAEE;IAEE;;EAGF;IACE;;;;AC9jBlB;EACE;;AAmBA;EACE,YACE;;AAoBJ;EACE;;AAmBA;EACE;;;AC7DJ;EACE;EACA;EACA;EAEA;EACA;EAEA;EAEA;EACA;EAEA;EAEA;;AAEA;EAQE;EACA;EACA;EACA;EACA;EAEA;EAEA;EACA;EACA;EACA;EAEA;;AApBA;EADF;IAEI;IACA;IACA;IACA;;;AAkBF;EACE;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;AAIJ;EASE;EACA;EACA;EACA;EAEA;EACA;;AAdA;EADF;IAEI;IACA;IACA;IACA;IACA;;;AAWF;EACE;EAEA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;EACA;;AAGF;EACE;EACA;EACA;EACA;;AAIJ;EACE;EAOA;EACA;EACA;EAEA;EAEA;;AAXA;EACE;;AAYF;EACE;EACA;;AAGF;EACE;;AAGF;EACE;EACA;;AAIA;EACE;;AAMR;EAcE;EAEA;EACA;EACA;EAEA;EAEA;EACA;EACA;EAEA;EAEA;;AA3BA;EADF;IAEI;;;AAGF;EALF;IAMI;IACA;;;AAGF;EACE;;AAmBF;EACE;EACA;;AAGF;EAKE;EACA;;AALA;EADF;IAEI;;;AAOJ;EACE;EACA;EACA;EAEA;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAIJ;EACE;EACA;EACA;EACA;EACA;EAMA;AACA;EACA;AACA;;AAPA;EACE;;AAUN;EACE;EACA;EACA;EAEA;EAEA;EACA;EAEA;EAgBA;;AATA;EACE;EACA;;AAEA;EACE;;AAMJ;EACE;EACA;EACA;EACA;EACA;EACA;EAEA;EACA;EACA;EACA;;;AC9QR;EACE;EACA;EACA;EACA;EACA;EACA;;;AAGF;EACE%22,%22file%22:%22site.css%22%7D */
