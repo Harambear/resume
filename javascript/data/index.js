@@ -21,21 +21,28 @@ export function data() {
       type: windowTypes.system,
       content: [
         {
-          title: 'General',
+          title: 'Ki Jung Kim',
           tag: 'general',
           data: [
             'Fullstack developer with diverse range of stack and experience',
-            'Over 7 years of professional experience in enterprise-scale application development',
-            'Application security enthusiast and OWASP fanatic'
+            'Over 7 years in enterprise-scale application development',
+            'Application security enthusiast and OWASP fanatic',
+            'Self-motivated with an aptitude for learning'
+          ],
+          images: [
+            'assets/images/profile_picture.png',
           ]
         },
         {
           title: 'Fun Facts',
           tag: 'facts',
           data: [
-            'has 2 fur baby cats and one of them is a cancer survivor!',
+            'has 2 fur-baby cats and one of them is a cancer survivor!',
             'likes to build and make things',
-            'is fluent in Korean'
+            'was born and raised in Seoul until 4th grade',
+            'is fluent in Korean',
+            'prefers the cold',
+            'is an FPV drone enthusiast'
           ]
         },
         {
@@ -190,42 +197,7 @@ export function data() {
       ],
       width: '30rem',
       height: '20rem'
-    },
-    {
-      name: 'Contact Info',
-      icon: 'assets/images/outlook.png',
-      options: [
-        windowOptions.file,
-        windowOptions.edit,
-        windowOptions.view,
-        windowOptions.help
-      ],
-      type: windowTypes.contact,
-      content: [
-        {
-          icon: 'assets/images/home.png',
-          alt: 'home',
-          text: 'Located in Honolulu, HI',
-        },
-        {
-          icon: 'assets/images/email.png',
-          alt: 'email',
-          text: 'kimkijung@icloud.com',
-        },
-        {
-          icon: 'assets/images/linkedin.png',
-          alt: 'linkedin',
-          text: 'linkedin.com/in/kimkijung'
-        },
-        {
-          icon: 'assets/images/github.png',
-          alt: 'github',
-          text: 'github.com/harambear',
-        }
-      ],
-      width: '18rem',
-      height: '20rem'
-    },
+    }
   ];
 
   return {

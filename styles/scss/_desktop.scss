@@ -349,7 +349,7 @@
                   display: flex;
                   align-items: center;
                   justify-content: center;
-                  height: 75%;
+                  height: 13rem;
                   width: 100%;
 
                   &__button {
@@ -357,7 +357,7 @@
                     position: absolute;
                     background: linear-gradient(to bottom, darkgreen, lightgreen 50%);
                     width: 1rem;
-                    height: 0.5rem;
+                    height: 0.3rem;
                     right: 1.5rem;
                     bottom: 0.3rem;
                     animation: pulse-animation 2s infinite;
@@ -374,18 +374,35 @@
                   }
 
                   &__screen {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     width: 85%;
-                    height: 80%;
+                    height: 11rem;
                     background: #008282;
-                    background-image: url('../../assets/images/windows_wallpaper.png');
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+
+                    &__image {
+                      height: 95%;
+                      width: 50%;
+                      position: relative;
+                      background: url('../../assets/images/profile_picture.png');
+                      background-size: cover;
+
+                      &::before {
+                        content: '';
+                        position: absolute;
+                        height: 0.5rem;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        background: linear-gradient(90deg, #000b7c, #377cc6);
+                      }
+                    }
                   }
 
                   &__stand {
                     width: 50%;
-                    height: 8%;
+                    height: 1.5rem;
 
                     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), #b9b9b9);
                     box-shadow: -2px 0px #e0dede,
@@ -420,6 +437,53 @@
 
                     width: 18rem;
                     height: 18rem;
+                  }
+                }
+              }
+
+              &--facts {
+                .facts {
+                  &-container {
+                    font-family: Classic Console, sans-serif;
+                    color: black;
+                    padding: 1rem;
+                  }
+
+                  &__title {
+                    font-weight: 600;
+
+                    margin-bottom: 1rem;
+                  }
+
+                  &__text {
+                    margin-bottom: 1rem;
+                  }
+                }
+              }
+
+              &--contact {
+
+                .contact {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 1.5rem;
+
+                  &__image {
+                    width: 2rem;
+                  }
+
+                  &__text {
+                    margin-left: 1rem;
+                    font-family: Classic Console, sans-serif;
+                    color: black;
+
+                    a {
+                      color: black;
+                    }
+                  }
+
+                  &-container {
+                    padding: 1rem;
                   }
                 }
               }
@@ -460,29 +524,6 @@
 
           .terminal--green {
             color: #55FF55;
-          }
-        }
-      }
-
-      &--contact {
-        color: #000000;
-
-        .contact-info {
-          display: flex;
-          align-items: center;
-          margin-bottom: 1.5rem;
-
-          &__image {
-            width: 2rem;
-          }
-
-          &__text {
-            margin-left: 1rem;
-          }
-
-          &__container {
-            display: flex;
-            flex-direction: column;
           }
         }
       }

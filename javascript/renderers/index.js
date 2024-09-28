@@ -91,10 +91,6 @@ export function renderers() {
       case windowTypes.system:
         _generateSystemContent(program, handlers.contentControls.systemTabClickHandler);
         break;
-
-      case windowTypes.contact:
-        _generateContactInfoContent(program);
-        break;
     }
   }
 
@@ -157,53 +153,6 @@ export function renderers() {
 
       startMenu.appendChild(item);
     });
-  }
-
-  function _generateContactInfoContent(program) {
-    const
-      target = document.querySelector('.desktop__window__content--contact'),
-      container = document.createElement('div');
-
-    container.className = 'contact-info__container';
-    target.appendChild(container);
-
-    for (let i = 0; i < program.content.length; i++) {
-      const
-        info = program.content[i],
-        image = document.createElement('img'),
-        item = document.createElement('div'),
-        text = document.createElement('div');
-
-      item.className = 'contact-info';
-      container.appendChild(item);
-
-      image.className = 'contact-info__image';
-      image.src = info.icon;
-      image.alt = info.alt;
-      item.appendChild(image);
-
-      text.className = 'contact-info__text';
-
-      if (info.text.includes('.com')) {
-        const anchor = document.createElement('a');
-
-        let prefix = 'https://';
-
-        if (info.text.includes('@')) {
-          prefix = 'mailto:';
-        }
-
-        anchor.href = prefix + info.text;
-        anchor.target = '_blank';
-        anchor.innerHTML = info.text;
-
-        text.appendChild(anchor);
-      } else {
-        text.innerHTML = info.text;
-      }
-
-      item.appendChild(text);
-    }
   }
 
   async function _generateExperienceContent(program) {
@@ -327,7 +276,9 @@ export function renderers() {
   }
 
   function _generateTabContent(tab) {
-    const content = document.createElement('div');
+    const
+      content = document.createElement('div');
+
     content.className = 'system__tab__content hidden system__tab__content--' + tab.tag;
     content.dataset.tag = tab.tag;
 
@@ -336,15 +287,21 @@ export function renderers() {
         container = document.createElement('div'),
         computer = document.createElement('div'),
         screen = document.createElement('div'),
+        image = document.createElement('div'),
         button = document.createElement('div'),
         stand = document.createElement('div'),
         base = document.createElement('div'),
         textContainer = document.createElement('div');
 
+      content.appendChild(container);
+
       container.className = 'computer-container';
       computer.className = 'computer box-shadow';
       screen.className = 'computer__screen box-shadow--active';
+      image.className = 'computer__screen__image box-shadow--light';
       button.className = 'computer__button';
+
+      screen.appendChild(image);
 
       computer.appendChild(screen);
       computer.appendChild(button);
@@ -372,8 +329,71 @@ export function renderers() {
 
       textContainer.appendChild(textSection);
 
-      content.appendChild(container);
       content.appendChild(textContainer);
+    } else if (tab.tag === 'facts') {
+      const
+        title = document.createElement('div'),
+        container = document.createElement('div');
+
+      container.className = 'facts-container box-shadow--active--light';
+
+      title.className = 'facts__title';
+      title.innerHTML = 'Ki Jung...';
+
+      container.appendChild(title);
+
+      tab.data.forEach((text) => {
+        const paragraph = document.createElement('p');
+        paragraph.className = 'facts__text';
+        paragraph.innerHTML = text;
+
+        container.appendChild(paragraph);
+      });
+
+      content.appendChild(container);
+    } else if (tab.tag === 'contact') {
+      const container = document.createElement('div');
+
+      tab.data.forEach((contact) => {
+        const
+          image = document.createElement('img'),
+          item = document.createElement('div'),
+          text = document.createElement('div');
+
+        item.className = 'contact';
+
+        container.className = 'contact-container box-shadow--active--light';
+        container.appendChild(item);
+
+        image.className = 'contact__image';
+        image.src = contact.icon;
+        image.alt = contact.alt;
+        item.appendChild(image);
+
+        text.className = 'contact__text';
+
+        if (contact.text.includes('.com')) {
+          const anchor = document.createElement('a');
+
+          let prefix = 'https://';
+
+          if (contact.text.includes('@')) {
+            prefix = 'mailto:';
+          }
+
+          anchor.href = prefix + contact.text;
+          anchor.target = '_blank';
+          anchor.innerHTML = contact.text;
+
+          text.appendChild(anchor);
+        } else {
+          text.innerHTML = contact.text;
+        }
+
+        item.appendChild(text);
+      });
+
+      content.appendChild(container);
     }
 
     return content;
