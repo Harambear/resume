@@ -308,14 +308,11 @@ export function renderers() {
       const
         tabData = program.content[i],
         tabButton = document.createElement('div'),
-        tabContent = document.createElement('div');
+        tabContent = _generateTabContent(tabData);
 
       tabButton.className = 'system__tab__button';
       tabButton.dataset.tag = tabData.tag;
       tabButton.addEventListener('click', handler);
-
-      tabContent.className = 'system__tab__content hidden';
-      tabContent.dataset.tag = tabData.tag;
 
       if (i === 0) {
         tabButton.classList.add('system__tab__button--active');
@@ -327,6 +324,59 @@ export function renderers() {
       tabButton.innerHTML = tabData.title;
       tabs.appendChild(tabButton);
     }
+  }
+
+  function _generateTabContent(tab) {
+    const content = document.createElement('div');
+    content.className = 'system__tab__content hidden system__tab__content--' + tab.tag;
+    content.dataset.tag = tab.tag;
+
+    if (tab.tag === 'general') {
+      const
+        container = document.createElement('div'),
+        computer = document.createElement('div'),
+        screen = document.createElement('div'),
+        button = document.createElement('div'),
+        stand = document.createElement('div'),
+        base = document.createElement('div'),
+        textContainer = document.createElement('div');
+
+      container.className = 'computer-container';
+      computer.className = 'computer box-shadow';
+      screen.className = 'computer__screen box-shadow--active';
+      button.className = 'computer__button';
+
+      computer.appendChild(screen);
+      computer.appendChild(button);
+
+      container.appendChild(computer);
+
+      stand.className = 'computer__stand';
+      base.className = 'computer__base box-shadow';
+
+      container.appendChild(stand);
+      container.appendChild(base);
+
+      textContainer.className = 'text-container';
+
+      const textSection = document.createElement('div');
+      textSection.className = 'text__section box-shadow--active--light';
+
+      tab.data.forEach((text) => {
+        const paragraph = document.createElement('p');
+        paragraph.className = 'text__section__text';
+        paragraph.innerHTML = text;
+
+        textSection.appendChild(paragraph);
+      });
+
+      textContainer.appendChild(textSection);
+
+      content.appendChild(container);
+      content.appendChild(textContainer);
+    }
+
+    return content;
   }
 
   function _generateWindowAddressBar(program) {

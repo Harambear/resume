@@ -24,22 +24,9 @@ export function data() {
           title: 'General',
           tag: 'general',
           data: [
-            {
-              title: 'System',
-              text: [
-                'Microsoft Kimdows 98',
-                'Web Edition',
-                'Version 1.0.0'
-              ]
-            },
-            {
-              title: 'General',
-              text: [
-                'Fullstack developer with over 7 years of professional experience in enterprise-scale application development',
-                'Application security enthusiast and OWASP fanatic',
-                'Diverse range of stack and experience'
-              ]
-            }
+            'Fullstack developer with diverse range of stack and experience',
+            'Over 7 years of professional experience in enterprise-scale application development',
+            'Application security enthusiast and OWASP fanatic'
           ]
         },
         {
