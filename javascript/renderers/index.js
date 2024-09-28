@@ -32,8 +32,11 @@ export function renderers() {
 
     window.className = 'desktop__window ' + classNames.boxShadow;
 
-    window.appendChild(_generateWindowHeader(program.name, handlers.controls));
-    window.appendChild(_generateWindowOptions(program));
+    window.appendChild(_generateWindowHeader(program.name, handlers.windowControls));
+
+    if (program.options.length) {
+      window.appendChild(_generateWindowOptions(program));
+    }
 
     if (program.hasAddressBar) {
       window.appendChild(_generateWindowAddressBar(program));
@@ -42,6 +45,12 @@ export function renderers() {
     window.appendChild(_generateWindowContent(program));
 
     const windowCount = document.querySelectorAll('.desktop__window').length;
+
+    window.style.width = program.width;
+
+    if (program.height) {
+      window.style.height = program.height;
+    }
 
     if (innerWidth >= 650 && innerWidth < 768) {
       window.style.top = (3 + windowCount) + 'rem';
@@ -69,14 +78,22 @@ export function renderers() {
         _generateExperienceContent(program);
         break;
 
-      case windowTypes.help:
-        break;
-
       case windowTypes.notepad:
         _generateNotepadContent(program);
         break;
 
       case windowTypes.folder:
+        break;
+
+      case windowTypes.help:
+        break;
+
+      case windowTypes.system:
+        _generateSystemContent(program, handlers.contentControls.systemTabClickHandler);
+        break;
+
+      case windowTypes.contact:
+        _generateContactInfoContent(program);
         break;
     }
   }
@@ -142,6 +159,53 @@ export function renderers() {
     });
   }
 
+  function _generateContactInfoContent(program) {
+    const
+      target = document.querySelector('.desktop__window__content--contact'),
+      container = document.createElement('div');
+
+    container.className = 'contact-info__container';
+    target.appendChild(container);
+
+    for (let i = 0; i < program.content.length; i++) {
+      const
+        info = program.content[i],
+        image = document.createElement('img'),
+        item = document.createElement('div'),
+        text = document.createElement('div');
+
+      item.className = 'contact-info';
+      container.appendChild(item);
+
+      image.className = 'contact-info__image';
+      image.src = info.icon;
+      image.alt = info.alt;
+      item.appendChild(image);
+
+      text.className = 'contact-info__text';
+
+      if (info.text.includes('.com')) {
+        const anchor = document.createElement('a');
+
+        let prefix = 'https://';
+
+        if (info.text.includes('@')) {
+          prefix = 'mailto:';
+        }
+
+        anchor.href = prefix + info.text;
+        anchor.target = '_blank';
+        anchor.innerHTML = info.text;
+
+        text.appendChild(anchor);
+      } else {
+        text.innerHTML = info.text;
+      }
+
+      item.appendChild(text);
+    }
+  }
+
   async function _generateExperienceContent(program) {
     const target = document.querySelector('.desktop__window__content--black');
 
@@ -200,7 +264,7 @@ export function renderers() {
 
   async function _generateNotepadContent(program) {
     const
-      target = document.querySelector('.desktop__window__content--white'),
+      target = document.querySelector('.desktop__window__content--notepad'),
       line = document.createElement('p'),
       text = document.createElement('div');
 
@@ -229,6 +293,39 @@ export function renderers() {
 
       text.appendChild(description);
       await _print(school.description, description, 50);
+    }
+  }
+
+  function _generateSystemContent(program, handler) {
+    const
+      target = document.querySelector('.desktop__window__content--system'),
+      tabs = document.createElement('div');
+
+    tabs.className = 'system__tab-container';
+    target.appendChild(tabs);
+
+    for (let i = 0; i < program.content.length; i++) {
+      const
+        tabData = program.content[i],
+        tabButton = document.createElement('div'),
+        tabContent = document.createElement('div');
+
+      tabButton.className = 'system__tab__button';
+      tabButton.dataset.tag = tabData.tag;
+      tabButton.addEventListener('click', handler);
+
+      tabContent.className = 'system__tab__content hidden';
+      tabContent.dataset.tag = tabData.tag;
+
+      if (i === 0) {
+        tabButton.classList.add('system__tab__button--active');
+        tabContent.classList.remove('hidden');
+      }
+
+      target.appendChild(tabContent);
+
+      tabButton.innerHTML = tabData.title;
+      tabs.appendChild(tabButton);
     }
   }
 
@@ -278,13 +375,22 @@ export function renderers() {
         container.classList.add('desktop__window__content--black');
         break;
 
-      case windowTypes.help:
-        container.classList.add('desktop__window__content--gray');
+      case windowTypes.system:
+        container.className = 'desktop__window__content box-shadow--light';
+        container.classList.add('desktop__window__content--system');
         break;
 
-      case windowTypes.notepad:
+      case windowTypes.help:
+        break;
+
+      case windowTypes.contact:
+        container.classList.add('desktop__window__content--contact');
+        break;
+
       case windowTypes.folder:
-        container.classList.add('desktop__window__content--white');
+        break;
+      case windowTypes.notepad:
+        container.classList.add('desktop__window__content--notepad');
         break;
     }
 

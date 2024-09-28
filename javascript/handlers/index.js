@@ -39,11 +39,14 @@ export function handlers() {
         renderStartBarProgram(program, startBarProgramClickHandler);
         renderDesktopWindow(program, {
           windowClickHandler,
-          controls: {
+          windowControls: {
             minimizeClickHandler,
             maximizeClickHandler,
             resetSizeClickHandler,
             closeClickHandler
+          },
+          contentControls: {
+            systemTabClickHandler
           }
         });
       }
@@ -113,7 +116,7 @@ export function handlers() {
       window = this.parentNode.parentNode.parentNode,
       position = window.getBoundingClientRect();
 
-    //save position
+    //save position and size
     window.dataset.positionTop = position.top;
     window.dataset.positionLeft = position.left;
     window.dataset.height = window.offsetHeight;
@@ -122,7 +125,7 @@ export function handlers() {
     //maximize
     window.style.top = '0';
     window.style.left = '0';
-    window.style.height = '100%';
+    window.style.height = 'calc(100svh - 3.5rem)';
     window.style.width = '100%';
 
     //change buttons
@@ -161,6 +164,29 @@ export function handlers() {
 
     //remove from desktop
     window.parentNode.removeChild(window);
+  }
+
+  function systemTabClickHandler(event) {
+    const
+      target = event.currentTarget,
+      activeButtonClass = 'system__tab__button--active';
+
+    target.parentNode.querySelector('.' + activeButtonClass).classList.remove(activeButtonClass);
+
+    target.classList.add('system__tab__button--active');
+
+    const
+      tag = target.dataset.tag,
+      window = target.parentNode.parentNode,
+      contents = [...window.querySelectorAll('.system__tab__content')];
+
+    contents.forEach((element) => {
+      if (element.dataset.tag === tag) {
+        element.classList.remove('hidden');
+      } else {
+        element.classList.add('hidden');
+      }
+    });
   }
 
   function startButtonHandler(event) {

@@ -9,7 +9,9 @@ export function constants() {
     notepad: 'notepad',
     terminal: 'terminal',
     folder: 'folder',
-    help: 'help'
+    help: 'help',
+    contact: 'contact',
+    system: 'system'
   }
 
   return {
