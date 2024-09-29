@@ -83,6 +83,7 @@ export function renderers() {
         break;
 
       case windowTypes.folder:
+        _generateFolderContent(program, handlers.contentControls);
         break;
 
       case windowTypes.help:
@@ -209,6 +210,112 @@ export function renderers() {
         await _print(duty, list, 1);
       }
     }
+  }
+
+  function _generateFolderContent(program, handlers) {
+    const
+      content = program.content,
+      target = document.querySelector('.desktop__window__content--folder'),
+      tree = document.createElement('div'),
+      files = document.createElement('div');
+
+    tree.className = 'folder__tree box-shadow--active--light';
+    target.appendChild(tree);
+
+    const
+      treeRoot = document.createElement('div'),
+      treeRootIcon = document.createElement('img'),
+      treeRootTitle = document.createElement('p');
+
+    treeRoot.className = 'folder__tree-root';
+    treeRoot.dataset.tag = content.tag;
+    treeRootIcon.className = 'folder__tree-root__image';
+    treeRootTitle.className = 'folder__tree-root__title';
+
+    treeRootIcon.src = content.icon;
+    treeRootTitle.innerHTML = content.title;
+
+    treeRoot.appendChild(treeRootIcon);
+    treeRoot.appendChild(treeRootTitle);
+    treeRoot.addEventListener('click', handlers.folderTreeRootClickHandler);
+
+    tree.appendChild(treeRoot);
+
+    const treeItems = document.createElement('div');
+    treeItems.className = 'folder__tree-item-container';
+    tree.appendChild(treeItems);
+
+    const initialFileContainer = document.createElement('div');
+    initialFileContainer.className = 'folder__file-container';
+    initialFileContainer.dataset.tag = content.tag;
+    files.appendChild(initialFileContainer);
+
+    content.items.forEach((item) => {
+      const
+        fileContainer = document.createElement('div'),
+        treeItem = document.createElement('div'),
+        treeIcon = document.createElement('img'),
+        treeTitle = document.createElement('div'),
+        fileItem = document.createElement('div'),
+        fileImage = document.createElement('img'),
+        fileTitle = document.createElement('div');
+
+      fileItem.className = 'folder__file__icon';
+      fileItem.dataset.tag = item.tag;
+      initialFileContainer.appendChild(fileItem);
+      fileItem.addEventListener('click', handlers.folderItemClickHandler);
+
+      fileImage.className = 'folder__file__icon__image';
+      fileImage.src = item.icon;
+      fileImage.alt = item.title;
+      fileItem.appendChild(fileImage);
+
+      fileTitle.className = 'folder__file__icon__title';
+      fileTitle.innerHTML = item.title;
+      fileItem.appendChild(fileTitle);
+
+      fileContainer.className = 'folder__file-container hidden';
+      fileContainer.dataset.tag = item.tag;
+
+      treeItem.className = 'folder__tree-item hidden';
+      treeItem.dataset.tag = item.tag;
+      treeItem.addEventListener('click', handlers.folderTreeItemClickHandler)
+      treeItems.appendChild(treeItem);
+
+      treeIcon.className = 'folder__tree-item__image';
+      treeIcon.src = item.icon;
+      treeItem.appendChild(treeIcon);
+
+      treeTitle.className = 'folder__tree-item__title';
+      treeTitle.innerHTML = item.title;
+      treeItem.appendChild(treeTitle);
+
+      files.appendChild(fileContainer);
+
+      item.items.forEach((iconItem) => {
+        const
+          icon = document.createElement('div'),
+          iconImage = document.createElement('img'),
+          iconTitle = document.createElement('div');
+
+        icon.className = 'folder__file__icon';
+
+        iconImage.className = 'folder__file__icon__image';
+        iconImage.src = iconItem.icon;
+        iconImage.alt = iconItem.title;
+        icon.appendChild(iconImage);
+
+        iconTitle.className = 'folder__file__icon__title';
+        iconTitle.innerHTML = iconItem.title;
+        icon.appendChild(iconTitle);
+
+        fileContainer.appendChild(icon);
+      });
+    });
+
+
+    files.className = 'folder__file-wrapper box-shadow--active--light';
+    target.appendChild(files);
   }
 
   async function _generateNotepadContent(program) {
@@ -453,12 +560,10 @@ export function renderers() {
       case windowTypes.help:
         break;
 
-      case windowTypes.contact:
-        container.classList.add('desktop__window__content--contact');
+      case windowTypes.folder:
+        container.classList.add('desktop__window__content--folder');
         break;
 
-      case windowTypes.folder:
-        break;
       case windowTypes.notepad:
         container.classList.add('desktop__window__content--notepad');
         break;

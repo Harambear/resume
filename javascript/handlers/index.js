@@ -46,13 +46,106 @@ export function handlers() {
             closeClickHandler
           },
           contentControls: {
-            systemTabClickHandler
+            systemTabClickHandler,
+            folderTreeRootClickHandler,
+            folderTreeItemClickHandler,
+            folderItemClickHandler
           }
         });
       }
     }
 
     return toggleDesktopIconActiveState(currentIcon);
+  }
+
+  function folderTreeRootClickHandler(event) {
+    const
+      target = event.currentTarget,
+      title = target.querySelector('.folder__tree-root__title'),
+      tag = target.dataset.tag;
+
+    title.classList.toggle('folder__tree-root__title--active');
+
+    if (target.className.includes('active')) {
+      deactivateRoot();
+    } else {
+      activateRoot();
+    }
+
+    highlightTreeItemByTag(tag);
+    openFolderByTag(tag);
+  }
+
+  function folderTreeItemClickHandler(event) {
+    const
+      target = event.currentTarget,
+      tag = target.dataset.tag;
+
+    openFolderByTag(tag);
+    highlightTreeItemByTag(tag);
+  }
+
+  function folderItemClickHandler(event) {
+    const
+      target = event.currentTarget,
+      tag = target.dataset.tag;
+
+    openFolderByTag(tag);
+    highlightTreeItemByTag(tag);
+    activateRoot()
+  }
+
+  function activateRoot() {
+    const
+      root = document.querySelector('.folder__tree-root'),
+      treeItems = [...document.querySelectorAll('.folder__tree-item')];
+
+    root.classList.add('folder__tree-root--active');
+
+    treeItems.forEach((item) => {
+      item.classList.remove('hidden');
+    });
+  }
+
+  function deactivateRoot() {
+    const
+      root = document.querySelector('.folder__tree-root'),
+      treeItems = [...document.querySelectorAll('.folder__tree-item')];
+
+    root.classList.remove('folder__tree-root--active');
+
+    treeItems.forEach((item) => {
+      item.classList.add('hidden');
+    });
+  }
+
+  function openFolderByTag(tag) {
+    [...document.querySelectorAll('.folder__file-container')].forEach((container) => {
+      if (container.dataset.tag === tag) {
+        container.classList.remove('hidden');
+      } else {
+        container.classList.add('hidden');
+      }
+    });
+  }
+
+
+  function highlightTreeItemByTag(tag) {
+    [...document.querySelectorAll('.folder__tree-item')].forEach((container) => {
+      const title = container.querySelector('.folder__tree-item__title');
+
+      if (container.dataset.tag === tag) {
+        title.classList.add('folder__tree-item__title--active');
+      } else {
+        title.classList.remove('folder__tree-item__title--active');
+      }
+    });
+
+    if (tag !== 'stack') {
+      const treeRoot = document.querySelector('.folder__tree-root__title');
+
+      treeRoot.classList.remove('folder__tree-root__title--active');
+    }
   }
 
   function windowClickHandler(event) {
