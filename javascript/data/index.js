@@ -98,7 +98,96 @@ export function data() {
       ],
       type: windowTypes.folder,
       hasAddressBar: true,
-      width: '30rem'
+      content:
+      {
+        title: 'Stack',
+        tag: 'stack',
+        icon: 'assets/images/hard-disk.png',
+        items: [
+          {
+            title: 'Frontend',
+            icon: 'assets/images/directory.png',
+            tag: 'frontend',
+            items: [
+              {
+                title: 'Angular',
+                icon: 'assets/images/angular.png'
+              },
+              {
+                title: 'CSS',
+                icon: 'assets/images/css.png'
+              },
+              {
+                title: 'HTML',
+                icon: 'assets/images/html.png'
+              },
+              {
+                title: 'JavaScript',
+                icon: 'assets/images/javascript.png'
+              },
+              {
+                title: 'React',
+                icon: 'assets/images/react.png'
+              },
+              {
+                title: 'Sassy CSS',
+                icon: 'assets/images/sass.png'
+              },
+              {
+                title: 'Vue',
+                icon: 'assets/images/vue.png'
+              },
+            ]
+          },
+          {
+            title: 'Backend',
+            icon: 'assets/images/directory.png',
+            tag: 'backend',
+            items: [
+              {
+                title: '.NET Core',
+                icon: 'assets/images/dotnet-core.png'
+              },
+              {
+                title: '.NET Framework',
+                icon: 'assets/images/dotnet-framework.png'
+              },
+              {
+                title: 'NodeJS',
+                icon: 'assets/images/nodejs.png'
+              },
+              {
+                title: 'SQL',
+                icon: 'assets/images/sql.png'
+              }
+            ]
+          },
+          {
+            title: 'Platform',
+            icon: 'assets/images/directory.png',
+            tag: 'platform',
+            items: [
+              {
+                title: 'Adobe Analytics',
+                icon: 'assets/images/adobe-analytics.png'
+              },
+              {
+                title: 'Azure',
+                icon: 'assets/images/azure.png'
+              },
+              {
+                title: 'Marketo',
+                icon: 'assets/images/marketo.png'
+              },
+              {
+                title: 'Optimizely',
+                icon: 'assets/images/optimizely.png'
+              },
+            ]
+          }
+        ]
+      },
+      width: '40rem'
     },
     {
       name: 'Experience',
