@@ -9,4 +9,5 @@ This project was built with primitive tools just to keep in touch with my roots.
 
 Once MVP is made, the project will be forked and saved in a separate repository.
 This project will then be rewritten in a modern frontend framework and optimized for performance.
+
 Most likely will use React for its light-weight framework.
