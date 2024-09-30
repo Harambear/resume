@@ -310,7 +310,7 @@ dd {
 }
 @media (min-width: 768px) {
   .desktop__window__content--system .system__tab__content {
-    width: 60%;
+    width: 75%;
   }
 }
 .desktop__window__content--system .system__tab__content--general {
