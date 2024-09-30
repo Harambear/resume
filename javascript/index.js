@@ -24,11 +24,4 @@ document.querySelector('.background').addEventListener('click', deactivateAll);
 
 window.addEventListener('load', () => {
   document.querySelector('.desktop').style.display = 'flex';
-  document.body.requestFullscreen()
-    .then(() => {
-      screen.orientation.lock('portrait')
-        .catch(() => {
-          // console.log('screen orientation not supported on desktop');
-        });
-    });
 });

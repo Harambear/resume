@@ -21,7 +21,7 @@
 
     width: 10rem;
 
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
 
     &__image {
       width: 3rem;
@@ -312,11 +312,13 @@
               left: 50%;
               top: 5%;
               transform: translate(-50%, 0);
+              padding: 1rem 0;
 
               &--general {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                overflow: scroll;
 
                 .text {
                   &-container {
@@ -330,6 +332,7 @@
 
                   &__section {
                     font-family: Classic Console, sans-serif;
+                    margin-top: 1rem;
                     padding: 1rem;
 
                     &__title {
@@ -559,6 +562,7 @@
               margin: 0 2rem;
               padding: 0.5rem 0;
               border-left: 1px dotted grey;
+              border-bottom: 1px solid #ffffff;
 
               &::before {
                 content: '';
