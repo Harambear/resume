@@ -2,6 +2,9 @@ import { constants } from '../constants/index.js';
 const { classNames } = constants();
 
 import { helpers } from '../helpers/index.js';
+
+let photoIndex = 0;
+
 const {
   activateProgram,
   deactivateOtherDesktopIcons,
@@ -49,13 +52,35 @@ export function handlers() {
             systemTabClickHandler,
             folderTreeRootClickHandler,
             folderTreeItemClickHandler,
-            folderItemClickHandler
+            folderItemClickHandler,
+            computerButtonClickHandler
           }
         });
       }
     }
 
     return toggleDesktopIconActiveState(currentIcon);
+  }
+
+  function computerButtonClickHandler(event) {
+    const target = document.querySelector('.computer__screen__image');
+
+    const images = [
+      '../../assets/images/profile-picture.png',
+      '../../assets/images/oodles1.jpg',
+      '../../assets/images/oodles2.jpg',
+      '../../assets/images/oodles3.jpg',
+      '../../assets/images/pili1.jpg',
+      '../../assets/images/pili2.jpg',
+      '../../assets/images/pili3.jpg',
+      '../../assets/images/together.jpg',
+    ]
+
+    if (photoIndex === images.length - 1) {
+      photoIndex = -1;
+    }
+
+    target.style.background = `url(${images[++photoIndex]})`;
   }
 
   function folderTreeRootClickHandler(event) {

@@ -90,7 +90,7 @@ export function renderers() {
         break;
 
       case windowTypes.system:
-        _generateSystemContent(program, handlers.contentControls.systemTabClickHandler);
+        _generateSystemContent(program, handlers.contentControls);
         break;
     }
   }
@@ -352,7 +352,7 @@ export function renderers() {
     }
   }
 
-  function _generateSystemContent(program, handler) {
+  function _generateSystemContent(program, handlers) {
     const
       target = document.querySelector('.desktop__window__content--system'),
       tabs = document.createElement('div');
@@ -364,11 +364,11 @@ export function renderers() {
       const
         tabData = program.content[i],
         tabButton = document.createElement('div'),
-        tabContent = _generateTabContent(tabData);
+        tabContent = _generateTabContent(tabData, handlers.computerButtonClickHandler);
 
       tabButton.className = 'system__tab__button';
       tabButton.dataset.tag = tabData.tag;
-      tabButton.addEventListener('click', handler);
+      tabButton.addEventListener('click', handlers.systemTabClickHandler);
 
       if (i === 0) {
         tabButton.classList.add('system__tab__button--active');
@@ -382,7 +382,7 @@ export function renderers() {
     }
   }
 
-  function _generateTabContent(tab) {
+  function _generateTabContent(tab, handler) {
     const
       content = document.createElement('div');
 
@@ -407,6 +407,7 @@ export function renderers() {
       screen.className = 'computer__screen box-shadow--active';
       image.className = 'computer__screen__image box-shadow--light';
       button.className = 'computer__button';
+      button.addEventListener('click', handler);
 
       screen.appendChild(image);
 

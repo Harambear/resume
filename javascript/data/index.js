@@ -28,9 +28,6 @@ export function data() {
             'Over 7 years in enterprise-scale application development',
             'Application security enthusiast and OWASP fanatic',
             'Self-motivated with an aptitude for learning'
-          ],
-          images: [
-            'assets/images/profile_picture.png',
           ]
         },
         {
