@@ -73,7 +73,7 @@ export function data() {
       width: '30rem'
     },
     {
-      name: 'About Me',
+      name: 'Site Help',
       icon: 'assets/images/help-book.png',
       class: '--line-below',
       options: [
