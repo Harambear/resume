@@ -199,11 +199,18 @@ export function handlers() {
       renderStartBarProgram(program, startBarProgramClickHandler);
       renderDesktopWindow(program, {
         windowClickHandler,
-        controls: {
+        windowControls: {
           minimizeClickHandler,
           maximizeClickHandler,
           resetSizeClickHandler,
           closeClickHandler
+        },
+        contentControls: {
+          systemTabClickHandler,
+          folderTreeRootClickHandler,
+          folderTreeItemClickHandler,
+          folderItemClickHandler,
+          computerButtonClickHandler
         }
       });
     }

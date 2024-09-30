@@ -260,10 +260,10 @@
 
     &__content {
       display: flex;
-      flex-grow: 1;
       margin: 0.25rem;
       margin-top: 0.5rem;
       padding: 1rem;
+      height: 100%;
 
       &--system {
         margin: 0.5rem;
@@ -307,12 +307,16 @@
 
             &__content {
               position: absolute;
-              width: 80%;
+              width: 90%;
               height: 90%;
               left: 50%;
               top: 5%;
               transform: translate(-50%, 0);
               padding: 1rem 0;
+
+              @media (min-width: viewports.$tablet) {
+                width: 60%;
+              }
 
               &--general {
                 display: flex;
@@ -470,7 +474,7 @@
               &--contact {
                 overflow-y: scroll;
                 margin: 0.5rem 0;
-                padding: 1rem;
+                padding: 0.5rem;
 
                 .contact {
                   display: flex;
