@@ -318,7 +318,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                overflow: scroll;
+                overflow-y: scroll;
 
                 .text {
                   &-container {
@@ -332,8 +332,9 @@
 
                   &__section {
                     font-family: Classic Console, sans-serif;
+                    margin: 0.5rem;
                     margin-top: 1rem;
-                    padding: 1rem;
+                    padding: 0.5rem;
 
                     &__title {
                       font-weight: 600;
@@ -436,7 +437,7 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-
+                    padding: 0.5rem;
                     width: 18rem;
                     height: 18rem;
                   }
@@ -444,8 +445,11 @@
               }
 
               &--facts {
+                overflow-y: scroll;
+
                 .facts {
                   &-container {
+                    margin: 0.5rem;
                     font-family: Classic Console, sans-serif;
                     color: black;
                     padding: 1rem;
@@ -464,10 +468,14 @@
               }
 
               &--contact {
+                overflow-y: scroll;
+                margin: 0.5rem 0;
+                padding: 1rem;
 
                 .contact {
                   display: flex;
                   align-items: center;
+
                   margin-bottom: 1.5rem;
 
                   &__image {
@@ -534,6 +542,7 @@
         padding: 0;
         display: flex;
         justify-content: center;
+        overflow: hidden;
 
         @media(max-width: viewports.$large-mobile) {
           flex-direction: column;
@@ -566,7 +575,7 @@
 
               &::before {
                 content: '';
-                position: absolute;
+                position: relative;
                 width: 1rem;
                 border-bottom: 1px dotted grey;
               }
@@ -588,7 +597,6 @@
 
               &__image {
                 width: 1.5rem;
-                margin-left: 1rem;
                 margin-right: 0.5rem;
               }
 
@@ -653,6 +661,7 @@
               flex-grow: 1;
               background: #ffffff;
               flex-wrap: wrap;
+              overflow-y: scroll;
             }
 
             &-container {
@@ -660,6 +669,7 @@
               flex-wrap: wrap;
               padding: 1rem;
               width: 100%;
+              overflow-y: scroll;
 
               @media (max-width: viewports.$large-mobile) {
                 justify-content: space-between;
@@ -672,6 +682,7 @@
               align-items: center;
               width: 5rem;
               margin-right: 0.5rem;
+              margin-bottom: 1rem;
 
               &__image {
                 width: 2.5rem;
@@ -688,6 +699,8 @@
 
       &--notepad {
         background: #ffffff;
+        overflow-y: scroll;
+        padding: 1rem;
 
         .notepad {
           color: black;
