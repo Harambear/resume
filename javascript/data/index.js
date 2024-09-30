@@ -256,7 +256,7 @@ export function data() {
           ]
         }
       ],
-      width: '50rem'
+      width: '40rem'
     },
     {
       name: 'Education',
