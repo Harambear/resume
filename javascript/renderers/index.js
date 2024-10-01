@@ -87,6 +87,7 @@ export function renderers() {
         break;
 
       case windowTypes.help:
+        _generateHelpContent(program, handlers.contentControls);
         break;
 
       case windowTypes.system:
@@ -210,6 +211,69 @@ export function renderers() {
         await _print(duty, list, 1);
       }
     }
+  }
+
+  function _generateHelpContent(program, handlers) {
+    const
+      contents = program.content,
+      target = document.querySelector('.desktop__window__content--help'),
+      tree = document.createElement('div'),
+      text = document.createElement('div');
+
+    tree.className = 'help__tree box-shadow--active--light';
+    target.appendChild(tree);
+    target.appendChild(text);
+
+    contents.forEach((content, index) => {
+      const
+        treeItem = document.createElement('div'),
+        treeIcon = document.createElement('img'),
+        treeTitle = document.createElement('p');
+
+      treeItem.dataset.tag = content.tag;
+      treeItem.addEventListener('click', handlers.helpTreeItemClickHandler)
+
+      treeItem.className = 'help__tree-item';
+      treeIcon.className = 'help__tree-item__image';
+      treeTitle.className = 'help__tree-item__title';
+
+      treeIcon.src = program.icon;
+      treeIcon.alt = content.title;
+
+      treeTitle.innerHTML = content.title;
+
+      treeItem.appendChild(treeIcon);
+      treeItem.appendChild(treeTitle);
+
+      tree.appendChild(treeItem);
+
+      const
+        textContainer = document.createElement('div'),
+        textContainerTitle = document.createElement('p');
+
+      textContainer.dataset.tag = content.tag;
+      textContainer.className = 'help__text-container box-shadow--active--light hidden';
+
+      if (index === 0) {
+        textContainer.classList.remove('hidden');
+      }
+
+      target.appendChild(textContainer);
+
+      textContainerTitle.className = 'help__text__title';
+      textContainerTitle.innerHTML = content.title;
+
+      textContainer.appendChild(textContainerTitle);
+
+      content.data.forEach((text) => {
+        const textItem = document.createElement('p');
+
+        textItem.className = 'help__text';
+        textItem.innerHTML = text;
+
+        textContainer.appendChild(textItem);
+      });
+    });
   }
 
   function _generateFolderContent(program, handlers) {
@@ -559,6 +623,7 @@ export function renderers() {
         break;
 
       case windowTypes.help:
+        container.classList.add('desktop__window__content--help');
         break;
 
       case windowTypes.folder:
