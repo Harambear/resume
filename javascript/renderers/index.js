@@ -256,6 +256,7 @@ export function renderers() {
 
       if (index === 0) {
         textContainer.classList.remove('hidden');
+        treeTitle.classList.add('help_tree-item__title--active');
       }
 
       target.appendChild(textContainer);
