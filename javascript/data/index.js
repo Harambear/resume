@@ -82,7 +82,43 @@ export function data() {
         windowOptions.help
       ],
       type: windowTypes.help,
-      width: '30rem'
+      content: [
+        {
+          title: 'Introduction',
+          tag: 'introduction',
+          data: [
+            'Take a step back in time to the turn of the millennium, when a dull-gray desktop sat on the table alongside a giant CRT monitor.',
+            'The computer would turn on sluggishly after a few beeps and grinds and the familiar logo of Windows would loop endlessly as it tries to load. After what seems like an eternity, the quirky color of the desktop would finally shine the screen.',
+            'Welcome to Kimdows 98, a web-version of what used to be cutting edge of our millenial childhood.'
+          ]
+        },
+        {
+          title: 'Inspiration',
+          tag: 'inspiration',
+          data: [
+            'As an early 90\'s baby, Windows 98 was my very first operating system. It was quirky, oldschool, and full of things to break; looking back at it filled me with nostalgia.',
+            'I created my resume site to pay homage to my "Gateway-OS"; the one that kickstarted my life in tech.']
+        },
+        {
+          title: 'Stack',
+          tag: 'stack',
+          data: [
+            'For this project, I wanted to keep it as simple as possible. I started with vanilla CSS, HTML, and JavaScript, but soon decided to leverage Sassy CSS (SCSS) for better management of BEM naming convention.',
+            'BEM is something I use at my current position, and it was something I wanted to incorporate into a personal project. I did soon learn that DOM manipulations are quite verbose with this method; it\'ll be something to reconsider during a refactor.',
+            'For JavaScript, ES6 modules were used for code and logic separation; however, since there are a lot of moving pieces in this application, a templating engine might have been worth the bundle size.'
+          ]
+        },
+        {
+          title: 'Takeaways',
+          tag: 'takeaways',
+          data: [
+            'BEM has it\'s pros and cons; it makes for modular styles, but very cumbersome to work with when a lot of JavaScript DOM manipulations are needed.',
+            'Application architecture should reflect functionality; Component-heavy applications will benefit from having component-based architecture.',
+            'Frameworks are not always needed nor should they be the de facto choice for a frontend developer.'
+          ]
+        },
+      ],
+      width: '35rem'
     },
     {
       name: 'Stack',

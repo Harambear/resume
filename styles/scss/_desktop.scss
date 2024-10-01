@@ -30,6 +30,7 @@
       &--active {
         background: #011590;
         opacity: 0.8;
+        border: 1px dotted gray;
       }
     }
 
@@ -37,6 +38,7 @@
       &--active {
         background: #011590;
         opacity: 0.8;
+        border: 1px dotted gray;
       }
     }
   }
@@ -571,7 +573,7 @@
             &-item {
               display: flex;
               align-items: center;
-
+              cursor: pointer;
               margin: 0 2rem;
               padding: 0.5rem 0;
               border-left: 1px dotted grey;
@@ -611,6 +613,7 @@
                   color: #ffffff;
                   background: #011590;
                   opacity: 0.8;
+                  border: 1px dotted gray;
                 }
               }
             }
@@ -620,7 +623,7 @@
               display: flex;
               align-items: center;
               margin-left: 1rem;
-
+              cursor: pointer;
               position: relative;
 
               &::before {
@@ -653,6 +656,7 @@
                   color: #ffffff;
                   background: #011590;
                   opacity: 0.8;
+                  border: 1px dotted gray;
                 }
               }
             }
@@ -697,6 +701,80 @@
                 text-align: center;
               }
             }
+          }
+        }
+      }
+
+      &--help {
+        padding: 0;
+        margin: 0.25rem;
+
+        display: flex;
+        overflow: hidden;
+
+        @media(max-width: viewports.$large-mobile) {
+          flex-direction: column;
+        }
+
+        .help {
+          &__tree {
+            background: #ffffff;
+            padding: 1rem;
+
+            &-item {
+              cursor: pointer;
+              color: #000000;
+              font-size: 14px;
+
+              display: flex;
+              align-items: center;
+
+              margin-bottom: 0.5rem;
+              margin-right: 1rem;
+
+              &__image {
+                width: 1rem;
+              }
+
+              &__title {
+                margin-left: 0.25rem;
+
+                &--active {
+                  color: #ffffff;
+                  background: #011590;
+                  opacity: 0.8;
+                  border: 1px dotted gray;
+                }
+              }
+            }
+          }
+
+          &__text {
+            &-container {
+              background: url('../../assets/images/background.png');
+              background-size: cover;
+              background-repeat: no-repeat;
+
+              flex-grow: 1;
+              color: #000000;
+              padding: 1rem;
+              margin-left: 0.5rem;
+
+              @media(max-width: viewports.$large-mobile) {
+                margin-left: 0;
+                margin-top: 0.5rem;
+              }
+
+              overflow-y: scroll;
+            }
+
+            &__title {
+              text-decoration: underline;
+              font-weight: 600;
+              margin-bottom: 1rem;
+            }
+
+            margin-bottom: 1rem;
           }
         }
       }
